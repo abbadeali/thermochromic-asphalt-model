@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أداة تحليل أداء الإسفلت الحرارية للعراق</title>
-    <link href="%D8%A3%D8%AF%D8%A7%D8%A9%20%D8%AA%D8%AD%D9%84%D9%8A%D9%84%20%D8%A3%D8%AF%D8%A7%D8%A1%20%D8%A7%D9%84%D8%A5%D8%B3%D9%81%D9%84%D8%AA%20%D8%A7%D9%84%D8%AD%D8%B1%D8%A7%D8%B1%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%B1%D8%A7%D9%82_files/tailwind.min.css" rel="stylesheet">
-    <script src="%D8%A3%D8%AF%D8%A7%D8%A9%20%D8%AA%D8%AD%D9%84%D9%8A%D9%84%20%D8%A3%D8%AF%D8%A7%D8%A1%20%D8%A7%D9%84%D8%A5%D8%B3%D9%81%D9%84%D8%AA%20%D8%A7%D9%84%D8%AD%D8%B1%D8%A7%D8%B1%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%B1%D8%A7%D9%82_files/chart.min.js"></script>
-    <link rel="stylesheet" href="%D8%A3%D8%AF%D8%A7%D8%A9%20%D8%AA%D8%AD%D9%84%D9%8A%D9%84%20%D8%A3%D8%AF%D8%A7%D8%A1%20%D8%A7%D9%84%D8%A5%D8%B3%D9%81%D9%84%D8%AA%20%D8%A7%D9%84%D8%AD%D8%B1%D8%A7%D8%B1%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%B1%D8%A7%D9%82_files/all.min.css">
+    <title>Thermochromic Asphalt Performance Analysis Tool for Iraq</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -89,7 +89,7 @@
             visibility: visible;
             opacity: 1;
         }
-         {
+        @media print {
             .no-print {
                 display: none;
             }
@@ -108,8 +108,8 @@
     <!-- Header -->
     <header class="text-center mb-8">
         <div class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white py-6 px-4 rounded-lg shadow-lg">
-            <h1 class="text-3xl font-bold mb-2"><font style="vertical-align: inherit;">أداة تحليل أداء الإسفلت الحرارية </font></h1>
-            <p class="text-xl"><font style="vertical-align: inherit;">النمذجة المتقدمة للبنية التحتية للطرق المستدامة في العراق </font></p>
+            <h1 class="text-3xl font-bold mb-2">Thermochromic Asphalt Performance Analysis Tool</h1>
+            <p class="text-xl">Advanced Modeling for Sustainable Road Infrastructure in Iraq</p>
         </div>
     </header>
 
@@ -118,21 +118,21 @@
         <!-- Introduction Section -->
         <div class="card">
             <div class="card-header">
-                <i class="fas fa-info-circle mr-2 text-blue-600"></i><font style="vertical-align: inherit;">حول هذه الأداة
-             </font></div>
-            <p class="mb-4"><font style="vertical-align: inherit;">
-                تساعد أداة التحليل الشاملة هذه المهندسين والمخططين على تقييم أداء الإسفلت الحراري 
-                عبر الظروف المناخية المتنوعة في العراق. عن طريق إدخال بيانات المناخ الإقليمية ومواصفات المواد ، 
-                يمكنك التنبؤ بكفاءة التنظيم الحراري ، والمتانة ، وفعالية التكلفة ، والتأثير البيئي.
-             </font></p>
+                <i class="fas fa-info-circle mr-2 text-blue-600"></i>About This Tool
+            </div>
+            <p class="mb-4">
+                This comprehensive analysis tool helps engineers and planners evaluate the performance of thermochromic asphalt 
+                across Iraq's diverse climate conditions. By entering regional climate data and material specifications, 
+                you can predict thermal regulation efficiency, durability, cost-effectiveness, and environmental impact.
+            </p>
             <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
-                <p class="font-medium text-blue-700"><font style="vertical-align: inherit;">الفوائد الرئيسية للإسفلت الحراري: </font></p>
+                <p class="font-medium text-blue-700">Key Benefits of Thermochromic Asphalt:</p>
                 <ul class="list-disc pl-5 mt-2 text-blue-900">
-                    <li><font style="vertical-align: inherit;">يقلل من درجة حرارة السطح بمقدار 4-6 درجة مئوية خلال أشهر الصيف الذروة </font></li>
-                    <li><font style="vertical-align: inherit;">يمتد عمر الرصيف بنسبة 25-30 ٪ من خلال انخفاض الإجهاد الحراري </font></li>
-                    <li><font style="vertical-align: inherit;">يقلل من تأثير جزيرة الحرارة الحضرية في المناطق المكتظة بالسكان </font></li>
-                    <li><font style="vertical-align: inherit;">يقلل متطلبات الصيانة وتكاليف دورة الحياة </font></li>
-                    <li><font style="vertical-align: inherit;">يحسن السلامة على الطرق خلال ظروف درجة الحرارة القصوى </font></li>
+                    <li>Reduces surface temperature by 4-6°C during peak summer months</li>
+                    <li>Extends pavement lifespan by 25-30% through reduced thermal stress</li>
+                    <li>Decreases urban heat island effect in densely populated areas</li>
+                    <li>Lowers maintenance requirements and lifecycle costs</li>
+                    <li>Improves road safety during extreme temperature conditions</li>
                 </ul>
             </div>
         </div>
@@ -140,28 +140,28 @@
         <!-- Tabbed Interface -->
         <div class="mb-8">
             <div class="flex border-b border-gray-200 no-print">
-                <button id="tab-input" class="px-4 py-2 font-medium text-blue-600 border-b-2 border-blue-600"><font style="vertical-align: inherit;">معلمات الإدخال </font></button>
-                <button id="tab-results" class="px-4 py-2 font-medium text-gray-500"><font style="vertical-align: inherit;">نتائج لوحة القيادة </font></button>
-                <button id="tab-implementation" class="px-4 py-2 font-medium text-gray-500"><font style="vertical-align: inherit;">دليل التنفيذ </font></button>
-                <button id="tab-documentation" class="px-4 py-2 font-medium text-gray-500"><font style="vertical-align: inherit;">الوثائق الفنية </font></button>
+                <button id="tab-input" class="px-4 py-2 text-blue-600 border-b-2 border-blue-600 font-medium">Input Parameters</button>
+                <button id="tab-results" class="px-4 py-2 text-gray-500 font-medium">Results Dashboard</button>
+                <button id="tab-implementation" class="px-4 py-2 text-gray-500 font-medium">Implementation Guide</button>
+                <button id="tab-documentation" class="px-4 py-2 text-gray-500 font-medium">Technical Documentation</button>
             </div>
 
             <!-- Input Parameters Tab -->
-            <div id="content-input" class="tab-content mt-6 active">
+            <div id="content-input" class="tab-content active mt-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Location Selection -->
                     <div class="card">
                         <div class="card-header">
-                            <i class="fas fa-map-marker-alt mr-2 text-blue-600"></i><font style="vertical-align: inherit;">معلمات الموقع
-                         </font></div>
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>Location Parameters
+                        </div>
                         <div class="mb-4">
-                            <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">حدد المحافظة: </font></label>
+                            <label class="block mb-2 font-medium">Select Governorate:</label>
                             <select id="governorate" class="input-field">
                                 <option value="custom">Custom Location</option>
-                                <option value="baghdad">Baghdad</option>
+                                <option value="baghdad" selected>Baghdad</option>
                                 <option value="basra">Basra</option>
                                 <option value="mosul">Mosul</option>
-                                <option value="erbil" selected="selected">Erbil</option>
+                                <option value="erbil">Erbil</option>
                                 <option value="najaf">Najaf</option>
                                 <option value="kirkuk">Kirkuk</option>
                                 <option value="diyala">Diyala</option>
@@ -180,68 +180,68 @@
                         
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    درجة الحرارة القصوى (درجة مئوية):
-                                     </font><div class="tooltip inline-block">
+                                <label class="block mb-2 font-medium">
+                                    Maximum Temperature (°C):
+                                    <div class="tooltip inline-block">
                                         <i class="fas fa-question-circle text-gray-400"></i>
-                                        <span class="tooltip-text"><font style="vertical-align: inherit;">أعلى درجة حرارة الصيف مسجلة </font></span>
+                                        <span class="tooltip-text">Highest recorded summer temperature</span>
                                     </div>
                                 </label>
-                                <input type="number" id="max-temp" class="input-field" value="44" wfd-id="id0">
+                                <input type="number" id="max-temp" class="input-field" value="50">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    درجة حرارة الحد الأدنى (درجة مئوية):
-                                     </font><div class="tooltip inline-block">
+                                <label class="block mb-2 font-medium">
+                                    Minimum Temperature (°C):
+                                    <div class="tooltip inline-block">
                                         <i class="fas fa-question-circle text-gray-400"></i>
-                                        <span class="tooltip-text"><font style="vertical-align: inherit;">أدنى درجة حرارة شتوية مسجلة </font></span>
+                                        <span class="tooltip-text">Lowest recorded winter temperature</span>
                                     </div>
                                 </label>
-                                <input type="number" id="min-temp" class="input-field" value="-3" wfd-id="id1">
+                                <input type="number" id="min-temp" class="input-field" value="5">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    متوسط ​​درجة الحرارة (درجة مئوية):
-                                 </font></label>
-                                <input type="number" id="avg-temp" class="input-field" value="19" wfd-id="id2">
+                                <label class="block mb-2 font-medium">
+                                    Average Temperature (°C):
+                                </label>
+                                <input type="number" id="avg-temp" class="input-field" value="25">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    الإشعاع الشمسي (W/M²):
-                                 </font></label>
-                                <input type="number" id="solar-radiation" class="input-field" value="800" wfd-id="id3">
+                                <label class="block mb-2 font-medium">
+                                    Solar Radiation (W/m²):
+                                </label>
+                                <input type="number" id="solar-radiation" class="input-field" value="900">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    الرطوبة النسبية (٪):
-                                 </font></label>
-                                <input type="number" id="humidity" class="input-field" value="35" wfd-id="id4">
+                                <label class="block mb-2 font-medium">
+                                    Relative Humidity (%):
+                                </label>
+                                <input type="number" id="humidity" class="input-field" value="30">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    الدورات الحرارية السنوية:
-                                     </font><div class="tooltip inline-block">
+                                <label class="block mb-2 font-medium">
+                                    Annual Thermal Cycles:
+                                    <div class="tooltip inline-block">
                                         <i class="fas fa-question-circle text-gray-400"></i>
-                                        <span class="tooltip-text"><font style="vertical-align: inherit;">عدد تقلبات درجة الحرارة الكبيرة في السنة </font></span>
+                                        <span class="tooltip-text">Number of significant temperature fluctuations per year</span>
                                     </div>
                                 </label>
-                                <input type="number" id="thermal-cycles" class="input-field" value="365" wfd-id="id5">
+                                <input type="number" id="thermal-cycles" class="input-field" value="365">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    عامل شدة الأشعة فوق البنفسجية:
-                                     </font><div class="tooltip inline-block">
+                                <label class="block mb-2 font-medium">
+                                    UV Intensity Factor:
+                                    <div class="tooltip inline-block">
                                         <i class="fas fa-question-circle text-gray-400"></i>
-                                        <span class="tooltip-text"><font style="vertical-align: inherit;">شدة الأشعة فوق البنفسجية النسبية (0.5-1.5 مقياس) </font></span>
+                                        <span class="tooltip-text">Relative UV intensity (0.5-1.5 scale)</span>
                                     </div>
                                 </label>
-                                <input type="number" id="uv-factor" class="input-field" min="0.5" max="1.5" step="0.1" value="0.9" wfd-id="id6">
+                                <input type="number" id="uv-factor" class="input-field" min="0.5" max="1.5" step="0.1" value="1.0">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    دورات تجميد ذوبان الجليد:
-                                 </font></label>
-                                <input type="number" id="freeze-thaw" class="input-field" value="30" wfd-id="id7">
+                                <label class="block mb-2 font-medium">
+                                    Freeze-Thaw Cycles:
+                                </label>
+                                <input type="number" id="freeze-thaw" class="input-field" value="0">
                             </div>
                         </div>
                     </div>
@@ -249,85 +249,85 @@
                     <!-- Material Properties -->
                     <div class="card">
                         <div class="card-header">
-                            <i class="fas fa-flask mr-2 text-blue-600"></i><font style="vertical-align: inherit;">خصائص المواد الحرارية
-                         </font></div>
+                            <i class="fas fa-flask mr-2 text-blue-600"></i>Thermochromic Material Properties
+                        </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    تركيز الصباغ (٪):
-                                     </font><div class="tooltip inline-block">
+                                <label class="block mb-2 font-medium">
+                                    Pigment Concentration (%):
+                                    <div class="tooltip inline-block">
                                         <i class="fas fa-question-circle text-gray-400"></i>
-                                        <span class="tooltip-text"><font style="vertical-align: inherit;">تتراوح القيم النموذجية من 2-6 ٪ </font></span>
+                                        <span class="tooltip-text">Typical values range from 2-6%</span>
                                     </div>
                                 </label>
-                                <input type="number" id="pigment-concentration" class="input-field" min="1" max="10" step="0.5" value="4" wfd-id="id8">
+                                <input type="number" id="pigment-concentration" class="input-field" min="1" max="10" step="0.5" value="4">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    درجة حرارة الانتقال (درجة مئوية):
-                                 </font></label>
-                                <input type="number" id="transition-temp" class="input-field" value="35" wfd-id="id9">
+                                <label class="block mb-2 font-medium">
+                                    Transition Temperature (°C):
+                                </label>
+                                <input type="number" id="transition-temp" class="input-field" value="35">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    امتصاص دقيقة:
-                                     </font><div class="tooltip inline-block">
+                                <label class="block mb-2 font-medium">
+                                    Min Absorptivity:
+                                    <div class="tooltip inline-block">
                                         <i class="fas fa-question-circle text-gray-400"></i>
-                                        <span class="tooltip-text"><font style="vertical-align: inherit;">الحد الأدنى من امتصاص الطاقة الشمسية (حالة درجة حرارة عالية) </font></span>
+                                        <span class="tooltip-text">Minimum solar absorptivity (high temperature state)</span>
                                     </div>
                                 </label>
-                                <input type="number" id="min-absorptivity" class="input-field" min="0.1" max="0.5" step="0.01" value="0.35" wfd-id="id10">
+                                <input type="number" id="min-absorptivity" class="input-field" min="0.1" max="0.5" step="0.01" value="0.35">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    امتصاص ماكس:
-                                     </font><div class="tooltip inline-block">
+                                <label class="block mb-2 font-medium">
+                                    Max Absorptivity:
+                                    <div class="tooltip inline-block">
                                         <i class="fas fa-question-circle text-gray-400"></i>
-                                        <span class="tooltip-text"><font style="vertical-align: inherit;">أقصى امتصاص الطاقة الشمسية (حالة درجة حرارة منخفضة) </font></span>
+                                        <span class="tooltip-text">Maximum solar absorptivity (low temperature state)</span>
                                     </div>
                                 </label>
-                                <input type="number" id="max-absorptivity" class="input-field" min="0.6" max="0.95" step="0.01" value="0.85" wfd-id="id11">
+                                <input type="number" id="max-absorptivity" class="input-field" min="0.6" max="0.95" step="0.01" value="0.85">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    نوع المواد:
-                                 </font></label>
+                                <label class="block mb-2 font-medium">
+                                    Material Type:
+                                </label>
                                 <select id="material-type" class="input-field">
-                                    <option value="standard" selected="selected">Standard Thermochromic</option>
+                                    <option value="standard">Standard Thermochromic</option>
                                     <option value="uv-resistant">UV-Resistant Enhanced</option>
                                     <option value="humidity-resistant">Humidity-Resistant</option>
                                     <option value="premium">Premium (UV+Humidity Resistant)</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    نوع الأسفلت:
-                                 </font></label>
+                                <label class="block mb-2 font-medium">
+                                    Base Asphalt Type:
+                                </label>
                                 <select id="base-asphalt" class="input-field">
                                     <option value="conventional">Conventional Asphalt</option>
-                                    <option value="polymer" selected="selected">Polymer-Modified</option>
+                                    <option value="polymer" selected>Polymer-Modified</option>
                                     <option value="high-stability">High Stability Mix</option>
                                     <option value="local-bitumen">Iraqi High-Sulfur Bitumen</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    طبقة واقية:
-                                 </font></label>
+                                <label class="block mb-2 font-medium">
+                                    Protective Coating:
+                                </label>
                                 <select id="protective-coating" class="input-field">
-                                    <option value="none" selected="selected">None</option>
+                                    <option value="none">None</option>
                                     <option value="standard">Standard Sealer</option>
-                                    <option value="hydrophobic">Hydrophobic Coating</option>
+                                    <option value="hydrophobic" selected>Hydrophobic Coating</option>
                                     <option value="high-durability">High Durability Sealer</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    طريقة التطبيق:
-                                 </font></label>
+                                <label class="block mb-2 font-medium">
+                                    Application Method:
+                                </label>
                                 <select id="application-method" class="input-field">
                                     <option value="mix-in">Mixed in Asphalt</option>
-                                    <option value="surface-layer" selected="selected">Surface Layer Only</option>
+                                    <option value="surface-layer" selected>Surface Layer Only</option>
                                     <option value="multi-layer">Multi-Layer System</option>
                                 </select>
                             </div>
@@ -337,64 +337,64 @@
                     <!-- Project Parameters -->
                     <div class="card">
                         <div class="card-header">
-                            <i class="fas fa-project-diagram mr-2 text-blue-600"></i><font style="vertical-align: inherit;">معلمات المشروع
-                         </font></div>
+                            <i class="fas fa-project-diagram mr-2 text-blue-600"></i>Project Parameters
+                        </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    خدمة الحياة (سنوات):
-                                 </font></label>
-                                <input type="number" id="service-life" class="input-field" min="1" max="30" value="15" wfd-id="id12">
+                                <label class="block mb-2 font-medium">
+                                    Service Life (years):
+                                </label>
+                                <input type="number" id="service-life" class="input-field" min="1" max="30" value="15">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    نوع الطريق:
-                                 </font></label>
+                                <label class="block mb-2 font-medium">
+                                    Road Type:
+                                </label>
                                 <select id="road-type" class="input-field">
                                     <option value="urban">Urban Road</option>
-                                    <option value="highway" selected="selected">Highway</option>
+                                    <option value="highway" selected>Highway</option>
                                     <option value="local">Local Road</option>
                                     <option value="bridge">Bridge Pavement</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    مستوى حركة المرور:
-                                 </font></label>
+                                <label class="block mb-2 font-medium">
+                                    Traffic Level:
+                                </label>
                                 <select id="traffic-level" class="input-field">
                                     <option value="low">Low Traffic</option>
-                                    <option value="medium" selected="selected">Medium Traffic</option>
-                                    <option value="high">High Traffic</option>
+                                    <option value="medium">Medium Traffic</option>
+                                    <option value="high" selected>High Traffic</option>
                                     <option value="very-high">Very High Traffic</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    قسط التكلفة الأولي (٪):
-                                     </font><div class="tooltip inline-block">
+                                <label class="block mb-2 font-medium">
+                                    Initial Cost Premium (%):
+                                    <div class="tooltip inline-block">
                                         <i class="fas fa-question-circle text-gray-400"></i>
-                                        <span class="tooltip-text"><font style="vertical-align: inherit;">تكلفة إضافية مقارنة بالإسفلت التقليدي </font></span>
+                                        <span class="tooltip-text">Additional cost compared to conventional asphalt</span>
                                     </div>
                                 </label>
-                                <input type="number" id="cost-premium" class="input-field" min="5" max="50" value="15" wfd-id="id13">
+                                <input type="number" id="cost-premium" class="input-field" min="5" max="50" value="15">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    فاصل الصيانة:
-                                 </font></label>
+                                <label class="block mb-2 font-medium">
+                                    Maintenance Interval:
+                                </label>
                                 <select id="maintenance-interval" class="input-field">
                                     <option value="standard">Standard (3-5 years)</option>
-                                    <option value="extended" selected="selected">Extended (5-7 years)</option>
+                                    <option value="extended" selected>Extended (5-7 years)</option>
                                     <option value="minimal">Minimal (7-10 years)</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    أولوية التنفيذ:
-                                 </font></label>
+                                <label class="block mb-2 font-medium">
+                                    Implementation Priority:
+                                </label>
                                 <select id="implementation-priority" class="input-field">
                                     <option value="performance">Maximum Performance</option>
-                                    <option value="cost" selected="selected">Cost Effectiveness</option>
+                                    <option value="cost" selected>Cost Effectiveness</option>
                                     <option value="durability">Maximum Durability</option>
                                     <option value="balanced">Balanced Approach</option>
                                 </select>
@@ -405,65 +405,65 @@
                     <!-- Traffic and Environmental Factors -->
                     <div class="card">
                         <div class="card-header">
-                            <i class="fas fa-car mr-2 text-blue-600"></i><font style="vertical-align: inherit;">عوامل المرور والبيئة
-                         </font></div>
+                            <i class="fas fa-car mr-2 text-blue-600"></i>Traffic & Environmental Factors
+                        </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    متوسط ​​حركة المرور اليومية:
-                                 </font></label>
-                                <input type="number" id="daily-traffic" class="input-field" value="20000" wfd-id="id14">
+                                <label class="block mb-2 font-medium">
+                                    Average Daily Traffic:
+                                </label>
+                                <input type="number" id="daily-traffic" class="input-field" value="20000">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    نسبة المركبات الثقيلة:
-                                 </font></label>
-                                <input type="number" id="heavy-vehicles" class="input-field" min="0" max="100" value="15" wfd-id="id15">
+                                <label class="block mb-2 font-medium">
+                                    Heavy Vehicle Percentage:
+                                </label>
+                                <input type="number" id="heavy-vehicles" class="input-field" min="0" max="100" value="15">
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    مستوى التعرض للغبار:
-                                     </font><div class="tooltip inline-block">
+                                <label class="block mb-2 font-medium">
+                                    Dust Exposure Level:
+                                    <div class="tooltip inline-block">
                                         <i class="fas fa-question-circle text-gray-400"></i>
-                                        <span class="tooltip-text"><font style="vertical-align: inherit;">يؤثر على الانعكاس والخصائص الحرارية </font></span>
+                                        <span class="tooltip-text">Impacts reflectivity and thermal properties</span>
                                     </div>
                                 </label>
                                 <select id="dust-exposure" class="input-field">
                                     <option value="low">Low (Urban Center)</option>
-                                    <option value="medium" selected="selected">Medium (Typical)</option>
+                                    <option value="medium" selected>Medium (Typical)</option>
                                     <option value="high">High (Desert Adjacent)</option>
                                     <option value="severe">Severe (Sand Storm Zone)</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    التعرض للملوحة:
-                                 </font></label>
+                                <label class="block mb-2 font-medium">
+                                    Salinity Exposure:
+                                </label>
                                 <select id="salinity" class="input-field">
-                                    <option value="none" selected="selected">None/Minimal</option>
+                                    <option value="none" selected>None/Minimal</option>
                                     <option value="low">Low</option>
                                     <option value="medium">Medium</option>
                                     <option value="high">High (Coastal/Salt Flats)</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    تأثير جزيرة الحرارة الحضرية:
-                                 </font></label>
+                                <label class="block mb-2 font-medium">
+                                    Urban Heat Island Effect:
+                                </label>
                                 <select id="uhi-effect" class="input-field">
                                     <option value="minimal">Minimal (Rural)</option>
                                     <option value="moderate">Moderate (Suburban)</option>
-                                    <option value="significant" selected="selected">Significant (Urban)</option>
+                                    <option value="significant" selected>Significant (Urban)</option>
                                     <option value="severe">Severe (Dense Urban)</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block mb-2 font-medium"><font style="vertical-align: inherit;">
-                                    استخدام الأراضي المحيطة:
-                                 </font></label>
+                                <label class="block mb-2 font-medium">
+                                    Surrounding Land Use:
+                                </label>
                                 <select id="land-use" class="input-field">
                                     <option value="urban">Urban (Buildings)</option>
-                                    <option value="suburban" selected="selected">Mixed Use</option>
+                                    <option value="suburban" selected>Mixed Use</option>
                                     <option value="industrial">Industrial</option>
                                     <option value="desert">Desert/Open</option>
                                 </select>
@@ -474,8 +474,8 @@
                 
                 <div class="mt-6 text-center">
                     <button id="calculate-btn" class="btn btn-primary px-8 py-3">
-                        <i class="fas fa-calculator mr-2"></i><font style="vertical-align: inherit;">حساب الأداء
-                     </font></button>
+                        <i class="fas fa-calculator mr-2"></i>Calculate Performance
+                    </button>
                 </div>
             </div>
 
@@ -485,11 +485,11 @@
                     <!-- Performance Score Card -->
                     <div class="card bg-gradient-to-br from-blue-50 to-indigo-50">
                         <div class="text-center">
-                            <h3 class="text-xl font-bold text-blue-800 mb-2"><font style="vertical-align: inherit;">درجة الأداء الإجمالية </font></h3>
-                            <div class="text-6xl font-bold text-blue-600 mb-2" id="overall-score">84</div>
+                            <h3 class="text-xl font-bold text-blue-800 mb-2">Overall Performance Score</h3>
+                            <div class="text-6xl font-bold text-blue-600 mb-2" id="overall-score">87</div>
                             <div class="text-sm text-blue-700" id="performance-category">Excellent</div>
                             <div class="w-full bg-gray-200 rounded-full h-4 mt-4">
-                                <div class="bg-blue-600 h-4 rounded-full" id="score-bar" style="width: 83.81%;"></div>
+                                <div class="bg-blue-600 h-4 rounded-full" id="score-bar" style="width: 87%"></div>
                             </div>
                         </div>
                     </div>
@@ -497,17 +497,17 @@
                     <!-- Temperature Reduction Card -->
                     <div class="card bg-gradient-to-br from-green-50 to-teal-50">
                         <div class="text-center">
-                            <h3 class="text-xl font-bold text-green-800 mb-2"><font style="vertical-align: inherit;">تقليل درجة حرارة السطح </font></h3>
+                            <h3 class="text-xl font-bold text-green-800 mb-2">Surface Temperature Reduction</h3>
                             <div class="flex justify-center items-end">
-                                <div class="text-6xl font-bold text-green-600" id="temp-reduction">4.0</div>
-                                <div class="text-2xl font-bold text-green-600 mb-2"><font style="vertical-align: inherit;">درجة مئوية </font></div>
+                                <div class="text-6xl font-bold text-green-600" id="temp-reduction">5.2</div>
+                                <div class="text-2xl font-bold text-green-600 mb-2">°C</div>
                             </div>
-                            <div class="text-sm text-green-700"><font style="vertical-align: inherit;">خلال الظروف الصيفية الذروة </font></div>
+                            <div class="text-sm text-green-700">During peak summer conditions</div>
                             <div class="mt-4 text-sm">
-                                <span class="font-medium"><font style="vertical-align: inherit;">السطح التقليدي: </font></span> <span id="conv-temp">46.0°C</span>
+                                <span class="font-medium">Conventional surface:</span> <span id="conv-temp">56.8°C</span>
                             </div>
                             <div class="text-sm">
-                                <span class="font-medium"><font style="vertical-align: inherit;">السطح الحراري: </font></span> <span id="thermo-temp">42.0°C</span>
+                                <span class="font-medium">Thermochromic surface:</span> <span id="thermo-temp">51.6°C</span>
                             </div>
                         </div>
                     </div>
@@ -515,17 +515,17 @@
                     <!-- Lifespan Extension Card -->
                     <div class="card bg-gradient-to-br from-purple-50 to-pink-50">
                         <div class="text-center">
-                            <h3 class="text-xl font-bold text-purple-800 mb-2"><font style="vertical-align: inherit;">خدمة تمديد الحياة </font></h3>
+                            <h3 class="text-xl font-bold text-purple-800 mb-2">Service Life Extension</h3>
                             <div class="flex justify-center items-end">
-                                <div class="text-6xl font-bold text-purple-600" id="life-extension">19</div>
-                                <div class="text-2xl font-bold text-purple-600 mb-2"><font style="vertical-align: inherit;">% </font></div>
+                                <div class="text-6xl font-bold text-purple-600" id="life-extension">28</div>
+                                <div class="text-2xl font-bold text-purple-600 mb-2">%</div>
                             </div>
-                            <div class="text-sm text-purple-700"><font style="vertical-align: inherit;">بالمقارنة مع الإسفلت التقليدي </font></div>
+                            <div class="text-sm text-purple-700">Compared to conventional asphalt</div>
                             <div class="mt-4 text-sm">
-                                <span class="font-medium"><font style="vertical-align: inherit;">العمر التقليدي: </font></span> <span id="conv-life">12 years</span>
+                                <span class="font-medium">Conventional lifespan:</span> <span id="conv-life">12 years</span>
                             </div>
                             <div class="text-sm">
-                                <span class="font-medium"><font style="vertical-align: inherit;">العمر المتوقع: </font></span> <span id="thermo-life">14.3 years</span>
+                                <span class="font-medium">Projected lifespan:</span> <span id="thermo-life">15.4 years</span>
                             </div>
                         </div>
                     </div>
@@ -534,10 +534,10 @@
                 <!-- Performance Metrics Table -->
                 <div class="card">
                     <div class="card-header flex justify-between items-center">
-                        <div><i class="fas fa-chart-line mr-2 text-blue-600"></i><font style="vertical-align: inherit;">مقاييس الأداء </font></div>
+                        <div><i class="fas fa-chart-line mr-2 text-blue-600"></i>Performance Metrics</div>
                         <div>
-                            <span class="text-sm text-gray-600"><font style="vertical-align: inherit;">الموقع: </font></span>
-                            <span id="result-location" class="font-medium">Erbil, Iraq</span>
+                            <span class="text-sm text-gray-600">Location: </span>
+                            <span id="result-location" class="font-medium">Baghdad, Iraq</span>
                         </div>
                     </div>
                     
@@ -545,103 +545,103 @@
                         <table class="mb-4">
                             <thead>
                                 <tr class="bg-gray-50">
-                                    <th><font style="vertical-align: inherit;">مقياس الأداء </font></th>
-                                    <th><font style="vertical-align: inherit;">قيمة </font></th>
-                                    <th><font style="vertical-align: inherit;">تصنيف </font></th>
-                                    <th><font style="vertical-align: inherit;">مقارنة مع التقليدية </font></th>
+                                    <th>Performance Metric</th>
+                                    <th>Value</th>
+                                    <th>Rating</th>
+                                    <th>Comparison to Conventional</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><font style="vertical-align: inherit;">الكفاءة الحرارية </font></td>
-                                    <td id="thermal-efficiency"><font style="vertical-align: inherit;">78% </font></td>
+                                    <td>Thermal Efficiency</td>
+                                    <td id="thermal-efficiency">78%</td>
                                     <td>
                                         <div class="flex items-center">
                                             <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
                                                 <div class="bg-blue-600 h-2.5 rounded-full" style="width: 78%"></div>
                                             </div>
-                                            <span><font style="vertical-align: inherit;">جيد </font></span>
+                                            <span>Good</span>
                                         </div>
                                     </td>
-                                    <td class="text-green-600"><font style="vertical-align: inherit;">+78 ٪ تحسين </font></td>
+                                    <td class="text-green-600">+78% improvement</td>
                                 </tr>
                                 <tr>
-                                    <td><font style="vertical-align: inherit;">مؤشر المتانة </font></td>
-                                    <td id="durability-index"><font style="vertical-align: inherit;">82/100 </font></td>
+                                    <td>Durability Index</td>
+                                    <td id="durability-index">82/100</td>
                                     <td>
                                         <div class="flex items-center">
                                             <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
                                                 <div class="bg-blue-600 h-2.5 rounded-full" style="width: 82%"></div>
                                             </div>
-                                            <span><font style="vertical-align: inherit;">ممتاز </font></span>
+                                            <span>Excellent</span>
                                         </div>
                                     </td>
-                                    <td class="text-green-600"><font style="vertical-align: inherit;">+23 ٪ تحسين </font></td>
+                                    <td class="text-green-600">+23% improvement</td>
                                 </tr>
                                 <tr>
-                                    <td><font style="vertical-align: inherit;">مقاومة الأشعة فوق البنفسجية </font></td>
-                                    <td id="uv-resistance"><font style="vertical-align: inherit;">جيد </font></td>
+                                    <td>UV Resistance</td>
+                                    <td id="uv-resistance">Good</td>
                                     <td>
                                         <div class="flex items-center">
                                             <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
                                                 <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75%"></div>
                                             </div>
-                                            <span><font style="vertical-align: inherit;">جيد </font></span>
+                                            <span>Good</span>
                                         </div>
                                     </td>
-                                    <td class="text-green-600"><font style="vertical-align: inherit;">+15 ٪ تحسين </font></td>
+                                    <td class="text-green-600">+15% improvement</td>
                                 </tr>
                                 <tr>
-                                    <td><font style="vertical-align: inherit;">مقاومة الهروب </font></td>
-                                    <td id="rutting-resistance"><font style="vertical-align: inherit;">جيد جدًا </font></td>
+                                    <td>Rutting Resistance</td>
+                                    <td id="rutting-resistance">Very Good</td>
                                     <td>
                                         <div class="flex items-center">
                                             <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
                                                 <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
                                             </div>
-                                            <span><font style="vertical-align: inherit;">جيد جدًا </font></span>
+                                            <span>Very Good</span>
                                         </div>
                                     </td>
-                                    <td class="text-green-600"><font style="vertical-align: inherit;">+25 ٪ تحسين </font></td>
+                                    <td class="text-green-600">+25% improvement</td>
                                 </tr>
                                 <tr>
-                                    <td><font style="vertical-align: inherit;">تكسير المقاومة </font></td>
-                                    <td id="cracking-resistance"><font style="vertical-align: inherit;">ممتاز </font></td>
+                                    <td>Cracking Resistance</td>
+                                    <td id="cracking-resistance">Excellent</td>
                                     <td>
                                         <div class="flex items-center">
                                             <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
                                                 <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
                                             </div>
-                                            <span><font style="vertical-align: inherit;">ممتاز </font></span>
+                                            <span>Excellent</span>
                                         </div>
                                     </td>
-                                    <td class="text-green-600"><font style="vertical-align: inherit;">+32 ٪ تحسين </font></td>
+                                    <td class="text-green-600">+32% improvement</td>
                                 </tr>
                                 <tr>
-                                    <td><font style="vertical-align: inherit;">كفاءة التكلفة </font></td>
-                                    <td id="cost-efficiency"><font style="vertical-align: inherit;">جيد </font></td>
+                                    <td>Cost Efficiency</td>
+                                    <td id="cost-efficiency">Good</td>
                                     <td>
                                         <div class="flex items-center">
                                             <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
                                                 <div class="bg-blue-600 h-2.5 rounded-full" style="width: 78%"></div>
                                             </div>
-                                            <span><font style="vertical-align: inherit;">جيد </font></span>
+                                            <span>Good</span>
                                         </div>
                                     </td>
-                                    <td class="text-green-600"><font style="vertical-align: inherit;">22 ٪ من عائد الاستثمار على دورة الحياة </font></td>
+                                    <td class="text-green-600">22% ROI over lifecycle</td>
                                 </tr>
                                 <tr>
-                                    <td><font style="vertical-align: inherit;">التأثير البيئي </font></td>
-                                    <td id="environmental-impact"><font style="vertical-align: inherit;">جيد جدًا </font></td>
+                                    <td>Environmental Impact</td>
+                                    <td id="environmental-impact">Very Good</td>
                                     <td>
                                         <div class="flex items-center">
                                             <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
                                                 <div class="bg-green-600 h-2.5 rounded-full" style="width: 85%"></div>
                                             </div>
-                                            <span><font style="vertical-align: inherit;">جيد جدًا </font></span>
+                                            <span>Very Good</span>
                                         </div>
                                     </td>
-                                    <td class="text-green-600"><font style="vertical-align: inherit;">18 ٪ تخفيض CO₂ </font></td>
+                                    <td class="text-green-600">18% CO₂ reduction</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -653,66 +653,64 @@
                     <!-- Temperature Performance Graph -->
                     <div class="card">
                         <div class="card-header">
-                            <i class="fas fa-temperature-high mr-2 text-blue-600"></i><font style="vertical-align: inherit;">أداء درجة الحرارة
-                         </font></div>
-                        <div class="h-64">
-                            <canvas id="temperature-chart" style="display: block; box-sizing: border-box; height: 256px; width: 587px;" height="256" width="587"></canvas>
+                            <i class="fas fa-temperature-high mr-2 text-blue-600"></i>Temperature Performance
                         </div>
-                        <div class="text-sm text-gray-600 mt-2"><font style="vertical-align: inherit;">
-                            مقارنة درجة حرارة السطح بين الإسفلت التقليدي والحراري خلال يوم صيفي نموذجي
-                         </font></div>
+                        <div class="h-64">
+                            <canvas id="temperature-chart"></canvas>
+                        </div>
+                        <div class="text-sm text-gray-600 mt-2">
+                            Surface temperature comparison between conventional and thermochromic asphalt during a typical summer day
+                        </div>
                     </div>
                     
                     <!-- Lifecycle Cost Analysis -->
                     <div class="card">
                         <div class="card-header">
-                            <i class="fas fa-coins mr-2 text-blue-600"></i><font style="vertical-align: inherit;">تحليل تكلفة دورة الحياة
-                         </font></div>
-                        <div class="h-64">
-                            <canvas id="cost-chart" style="display: block; box-sizing: border-box; height: 256px; width: 587px;" height="256" width="587"></canvas>
+                            <i class="fas fa-coins mr-2 text-blue-600"></i>Lifecycle Cost Analysis
                         </div>
-                        <div class="text-sm text-gray-600 mt-2"><font style="vertical-align: inherit;">
-                            التكاليف التراكمية على مدى 20 عامًا بما في ذلك نفقات البناء والصيانة الأولية
-                         </font></div>
+                        <div class="h-64">
+                            <canvas id="cost-chart"></canvas>
+                        </div>
+                        <div class="text-sm text-gray-600 mt-2">
+                            Cumulative costs over 20 years including initial construction and maintenance expenses
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Material Performance Over Time -->
                 <div class="card mt-6">
                     <div class="card-header">
-                        <i class="fas fa-hourglass-half mr-2 text-blue-600"></i><font style="vertical-align: inherit;">تدهور الأداء بمرور الوقت
-                     </font></div>
-                    <div class="h-64">
-                        <canvas id="degradation-chart" style="display: block; box-sizing: border-box; height: 256px; width: 1199px;" height="256" width="1199"></canvas>
+                        <i class="fas fa-hourglass-half mr-2 text-blue-600"></i>Performance Degradation Over Time
                     </div>
-                    <div class="text-sm text-gray-600 mt-2"><font style="vertical-align: inherit;">
-                        مقاييس الأداء المتوقعة على عمر الخدمة ، والتي 
-توضح كيف تؤثر التعرض للأشعة فوق البنفسجية وحركة المرور والعوامل البيئية 
-على الكفاءة الحرارية
-                     </font></div>
+                    <div class="h-64">
+                        <canvas id="degradation-chart"></canvas>
+                    </div>
+                    <div class="text-sm text-gray-600 mt-2">
+                        Projected performance metrics over the service life, showing how UV exposure, traffic, and environmental factors affect thermochromic efficiency
+                    </div>
                 </div>
                 
                 <!-- Recommendations Section -->
                 <div class="card mt-6 bg-gradient-to-r from-blue-50 to-indigo-50">
                     <div class="card-header border-b border-blue-200">
-                        <i class="fas fa-lightbulb mr-2 text-blue-600"></i><font style="vertical-align: inherit;">التوصيات
-                     </font></div>
+                        <i class="fas fa-lightbulb mr-2 text-blue-600"></i>Recommendations
+                    </div>
                     <div class="mb-4">
-                        <h4 class="font-semibold text-blue-800 mb-2"><font style="vertical-align: inherit;">النتائج الرئيسية: </font></h4>
+                        <h4 class="font-semibold text-blue-800 mb-2">Key Findings:</h4>
                         <ul class="list-disc pl-5 text-blue-900">
-                            <li id="recommendation-1">Thermochromic asphalt with 4% pigment concentration would provide optimal performance for Erbil's climate conditions.</li>
-                            <li id="recommendation-2">The addition of a standard protective coating is recommended to maximize performance longevity.</li>
-                            <li id="recommendation-3">Expected temperature reduction of 4.0°C will significantly extend pavement life and reduce maintenance frequency.</li>
-                            <li id="recommendation-4">The 15% initial cost premium is economically justified with a 15% return on investment over the lifecycle.</li>
+                            <li id="recommendation-1">Thermochromic asphalt with 4% pigment concentration would provide optimal performance for Baghdad's climate conditions.</li>
+                            <li id="recommendation-2">The addition of a hydrophobic protective coating is strongly recommended due to high UV exposure in this region.</li>
+                            <li id="recommendation-3">Expected temperature reduction of 5.2°C will significantly extend pavement life and reduce maintenance frequency.</li>
+                            <li id="recommendation-4">The 15% initial cost premium is economically justified with a 22% return on investment over the lifecycle.</li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-blue-800 mb-2"><font style="vertical-align: inherit;">اعتبارات التنفيذ: </font></h4>
+                        <h4 class="font-semibold text-blue-800 mb-2">Implementation Considerations:</h4>
                         <ul class="list-disc pl-5 text-blue-900">
-                            <li id="implementation-1"><font style="vertical-align: inherit;">جدولة البناء خلال مواسم درجة الحرارة المعتدلة (الربيع/الخريف) للتكامل الحراري الأمثل. </font></li>
-                            <li id="implementation-2"><font style="vertical-align: inherit;">النظر في التنفيذ التجريبي على الممرات الحضرية العالية التي تدوم حيث تكون الإجهاد الحراري وتأثيرات جزيرة الحرارة أكثر وضوحا. </font></li>
-                            <li id="implementation-3"><font style="vertical-align: inherit;">قم بتنفيذ بروتوكول صيانة مصمم خصيصًا للأسطح الحرارية للحفاظ على الأداء الأمثل. </font></li>
-                            <li id="implementation-4"><font style="vertical-align: inherit;">مراقبة الأداء موسميا خلال العامين الأولين لإنشاء معدلات تدهور خط الأساس في الظروف المحلية. </font></li>
+                            <li id="implementation-1">Schedule construction during moderate temperature seasons (spring/fall) for optimal thermochromic integration.</li>
+                            <li id="implementation-2">Consider pilot implementation on high-traffic urban corridors where thermal stress and heat island effects are most pronounced.</li>
+                            <li id="implementation-3">Implement a maintenance protocol specifically designed for thermochromic surfaces to maintain optimal performance.</li>
+                            <li id="implementation-4">Monitor performance seasonally during the first two years to establish baseline degradation rates in local conditions.</li>
                         </ul>
                     </div>
                 </div>
@@ -722,58 +720,55 @@
             <div id="content-implementation" class="tab-content mt-6">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fas fa-road mr-2 text-blue-600"></i><font style="vertical-align: inherit;">دليل التنفيذ خطوة بخطوة
-                     </font></div>
+                        <i class="fas fa-road mr-2 text-blue-600"></i>Step-by-Step Implementation Guide
+                    </div>
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-blue-800 mb-2"><font style="vertical-align: inherit;">1. تخطيط المشروع والجدوى </font></h3>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">1. Project Planning & Feasibility</h3>
                         <div class="pl-6">
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">1.1 تقييم الموقع: </font></span><font style="vertical-align: inherit;">إجراء تحليل مفصل للمناخ لموقع المشروع ، بما في ذلك ملفات تعريف درجة الحرارة والإشعاع الشمسي وأنماط الرطوبة. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">1.2 تحليل حركة المرور: </font></span><font style="vertical-align: inherit;">تقييم حجم حركة المرور ، والتكوين ، والأنماط لتحديد متطلبات الإجهاد الميكانيكي. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">1.3 التحليل الاقتصادي: </font></span><font style="vertical-align: inherit;">إجراء تحليل تكلفة دورة الحياة يقارن الإسفلت التقليدي مع البدائل الحرارية. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">1.4 اختيار المواد: </font></span><font style="vertical-align: inherit;">استنادًا إلى التحديات الإقليمية المحددة ، حدد الصياغة الحرارية والأنظمة الوقائية المناسبة. </font></p>
+                            <p class="mb-2"><span class="font-semibold">1.1 Site Assessment:</span> Conduct a detailed climate analysis of the project location, including temperature profiles, solar radiation, and humidity patterns.</p>
+                            <p class="mb-2"><span class="font-semibold">1.2 Traffic Analysis:</span> Evaluate traffic volume, composition, and patterns to determine mechanical stress requirements.</p>
+                            <p class="mb-2"><span class="font-semibold">1.3 Economic Analysis:</span> Perform a lifecycle cost analysis comparing conventional asphalt with thermochromic alternatives.</p>
+                            <p class="mb-2"><span class="font-semibold">1.4 Material Selection:</span> Based on the specific regional challenges, select the appropriate thermochromic formulation and protective systems.</p>
                             
                             <div class="bg-blue-50 border-l-4 border-blue-500 p-3 mt-2 mb-4">
                                 <p class="text-sm text-blue-800">
-                                    <span class="font-semibold"><font style="vertical-align: inherit;">الاعتبار الإقليمي: </font></span><font style="vertical-align: inherit;">بالنسبة
- للعراق الجنوبي (البصرة ، دي جي قار) ، يعطي الأولوية للمستحضرات المقاومة
- للأشعة فوق البنفسجية. بالنسبة للمناطق الشمالية (الموصل ، erbil) ، فكر 
-في تركيبات الجليد المقاومة للذوبان.
-                                 </font></p>
+                                    <span class="font-semibold">Regional Consideration:</span> For southern Iraq (Basra, Dhi Qar), prioritize UV-resistant formulations. For northern regions (Mosul, Erbil), consider freeze-thaw resistant formulations.
+                                </p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-blue-800 mb-2"><font style="vertical-align: inherit;">2. شراء المواد واختبارها </font></h3>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">2. Material Procurement & Testing</h3>
                         <div class="pl-6">
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">2.1 اختيار المورد: </font></span><font style="vertical-align: inherit;">العمل مع الموردين ذوي السمعة الطيبة الذين يمكنهم تقديم مواد حرارية معتمدة ودعم فني. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">2.2 اختبار المواد: </font></span><font style="vertical-align: inherit;">إجراء اختبار مختبري للعينات المختلطة للتحقق من الخواص الحرارية والأداء الميكانيكي. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">2.3 تصميم المزيج: </font></span><font style="vertical-align: inherit;">قم بتطوير تصميم محسّن يدمج المواد الحرارية مع الركام والمجلدات المحلية. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">2.4 خطة مراقبة الجودة: </font></span><font style="vertical-align: inherit;">إنشاء إجراءات مراقبة الجودة لمعالجة المواد والخلط والتطبيق. </font></p>
+                            <p class="mb-2"><span class="font-semibold">2.1 Supplier Selection:</span> Work with reputable suppliers who can provide certified thermochromic materials and technical support.</p>
+                            <p class="mb-2"><span class="font-semibold">2.2 Material Testing:</span> Conduct laboratory testing of mixed samples to verify thermal properties and mechanical performance.</p>
+                            <p class="mb-2"><span class="font-semibold">2.3 Mix Design:</span> Develop an optimized mix design integrating thermochromic materials with local aggregates and binders.</p>
+                            <p class="mb-2"><span class="font-semibold">2.4 Quality Control Plan:</span> Establish quality control procedures for material handling, mixing, and application.</p>
                             
                             <table class="w-full border text-sm mt-3 mb-4">
                                 <thead>
                                     <tr class="bg-gray-100">
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">مصدر المواد </font></th>
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">المزايا </font></th>
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">التحديات </font></th>
+                                        <th class="p-2 border">Material Source</th>
+                                        <th class="p-2 border">Advantages</th>
+                                        <th class="p-2 border">Challenges</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">الموردين الأوروبيين </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">دعم فني عالي الجودة ، </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">ارتفاع تكلفة ، أوقات تسليم أطول </font></td>
+                                        <td class="p-2 border">European Suppliers</td>
+                                        <td class="p-2 border">High quality, extensive technical support</td>
+                                        <td class="p-2 border">Higher cost, longer delivery times</td>
                                     </tr>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">الموردين الآسيويين </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">فعالة من حيث التكلفة ، تسليم أسرع </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">جودة متغيرة ، دعم تقني أقل </font></td>
+                                        <td class="p-2 border">Asian Suppliers</td>
+                                        <td class="p-2 border">Cost-effective, faster delivery</td>
+                                        <td class="p-2 border">Variable quality, less technical support</td>
                                     </tr>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">الشراكات الإقليمية </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">تسليم أسرع ، وفورات محتملة في التكاليف </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">مجموعة المنتجات المحدودة </font></td>
+                                        <td class="p-2 border">Regional Partnerships</td>
+                                        <td class="p-2 border">Faster delivery, potential cost savings</td>
+                                        <td class="p-2 border">Limited product range</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -781,50 +776,47 @@
                     </div>
                     
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-blue-800 mb-2"><font style="vertical-align: inherit;">3. البناء والتطبيق </font></h3>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">3. Construction & Application</h3>
                         <div class="pl-6">
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">3.1 الجدولة: </font></span><font style="vertical-align: inherit;">خطة البناء خلال مواسم درجة الحرارة المعتدلة (الربيع/الخريف) لأداء المواد الأمثل. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">3.2 إعداد المعدات: </font></span><font style="vertical-align: inherit;">تأكد من معايرة الخلط والرصف بشكل صحيح للمواد الحرارية. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">3.3 التحكم في درجة الحرارة: </font></span><font style="vertical-align: inherit;">الحفاظ على أدوات التحكم في درجة الحرارة الصارمة أثناء الخلط والتطبيق. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">3.4 طريقة التطبيق: </font></span><font style="vertical-align: inherit;">اتبع تقنيات التطبيق المحددة استنادًا إلى النظام الحراري المحدد (Mix-in مقابل الطبقة السطحية). </font></p>
+                            <p class="mb-2"><span class="font-semibold">3.1 Scheduling:</span> Plan construction during moderate temperature seasons (spring/fall) for optimal material performance.</p>
+                            <p class="mb-2"><span class="font-semibold">3.2 Equipment Setup:</span> Ensure mixing and paving equipment is properly calibrated for thermochromic materials.</p>
+                            <p class="mb-2"><span class="font-semibold">3.3 Temperature Control:</span> Maintain strict temperature controls during mixing and application.</p>
+                            <p class="mb-2"><span class="font-semibold">3.4 Application Method:</span> Follow specified application techniques based on selected thermochromic system (mix-in vs. surface layer).</p>
                             
                             <div class="bg-yellow-50 border-l-4 border-yellow-500 p-3 mt-2 mb-4">
                                 <p class="text-sm text-yellow-800">
-                                    <span class="font-semibold"><font style="vertical-align: inherit;">تحذير حاسم: </font></span><font style="vertical-align: inherit;">قد
- تتحلل أصباغ الحرارية الحرارية إذا تم خلطها في درجات حرارة مفرطة (&gt; 
-180 درجة مئوية). مراقبة درجات الحرارة والمدة بعناية للحفاظ على الخواص 
-الحرارية.
-                                 </font></p>
+                                    <span class="font-semibold">Critical Warning:</span> Thermochromic pigments may degrade if mixed at excessive temperatures (>180°C). Carefully monitor mixing temperatures and duration to preserve thermal properties.
+                                </p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-blue-800 mb-2"><font style="vertical-align: inherit;">4. ضمان الجودة والتحقق </font></h3>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">4. Quality Assurance & Verification</h3>
                         <div class="pl-6">
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">4.1 الاختبار الميداني: </font></span><font style="vertical-align: inherit;">إجراء اختبار في الموقع للخصائص الحرارية بعد التثبيت. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">4.2 التحقق من الأداء: </font></span><font style="vertical-align: inherit;">مراقبة فرق درجة الحرارة بين الأقسام التقليدية والحرارية. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">4.3 الوثائق: </font></span><font style="vertical-align: inherit;">الحفاظ على سجلات شاملة لإجراءات التثبيت وخصائص المواد ومقاييس الأداء الأولية. </font></p>
+                            <p class="mb-2"><span class="font-semibold">4.1 Field Testing:</span> Conduct in-situ testing of thermal properties post-installation.</p>
+                            <p class="mb-2"><span class="font-semibold">4.2 Performance Verification:</span> Monitor temperature differentials between conventional and thermochromic sections.</p>
+                            <p class="mb-2"><span class="font-semibold">4.3 Documentation:</span> Maintain comprehensive records of installation procedures, material properties, and initial performance metrics.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3 mb-4">
                                 <div class="border rounded p-3 bg-gray-50">
-                                    <h4 class="font-semibold mb-2"><font style="vertical-align: inherit;">معدات الاختبار الموصى بها </font></h4>
+                                    <h4 class="font-semibold mb-2">Recommended Testing Equipment</h4>
                                     <ul class="list-disc pl-5 text-sm">
-                                        <li><font style="vertical-align: inherit;">كاميرا التصوير الحراري بالأشعة تحت الحمراء </font></li>
-                                        <li><font style="vertical-align: inherit;">تحقيقات درجة حرارة السطح </font></li>
-                                        <li><font style="vertical-align: inherit;">غرفة الشيخوخة الأشعة فوق البنفسجية (مختبر) </font></li>
-                                        <li><font style="vertical-align: inherit;">مقياس الطيف لقياسات الانعكاس </font></li>
-                                        <li><font style="vertical-align: inherit;">محطة مراقبة الطقس </font></li>
+                                        <li>Infrared thermal imaging camera</li>
+                                        <li>Surface temperature probes</li>
+                                        <li>UV aging chamber (laboratory)</li>
+                                        <li>Spectrophotometer for reflectivity measurements</li>
+                                        <li>Weather monitoring station</li>
                                     </ul>
                                 </div>
                                 <div class="border rounded p-3 bg-gray-50">
-                                    <h4 class="font-semibold mb-2"><font style="vertical-align: inherit;">مؤشرات الأداء الرئيسية </font></h4>
+                                    <h4 class="font-semibold mb-2">Key Performance Indicators</h4>
                                     <ul class="list-disc pl-5 text-sm">
-                                        <li><font style="vertical-align: inherit;">ذروة درجة حرارة التفاضلية (درجة مئوية) </font></li>
-                                        <li><font style="vertical-align: inherit;">وقت استجابة انتقال اللون </font></li>
-                                        <li><font style="vertical-align: inherit;">انعكاس السطح في درجات حرارة مختلفة </font></li>
-                                        <li><font style="vertical-align: inherit;">الخصائص الميكانيكية (Rutting ، قوة الشد) </font></li>
-                                        <li><font style="vertical-align: inherit;">توحيد المظهر البصري </font></li>
+                                        <li>Peak temperature differential (°C)</li>
+                                        <li>Color transition response time</li>
+                                        <li>Surface reflectivity at various temperatures</li>
+                                        <li>Mechanical properties (rutting, tensile strength)</li>
+                                        <li>Visual appearance uniformity</li>
                                     </ul>
                                 </div>
                             </div>
@@ -832,41 +824,41 @@
                     </div>
                     
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-blue-800 mb-2"><font style="vertical-align: inherit;">5. بروتوكول الصيانة </font></h3>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">5. Maintenance Protocol</h3>
                         <div class="pl-6">
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">5.1 المراقبة الروتينية: </font></span><font style="vertical-align: inherit;">إنشاء جدول لتقييم الأداء الحراري الدوري. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">5.2 إجراءات التنظيف: </font></span><font style="vertical-align: inherit;">تطوير بروتوكولات تنظيف محددة للحفاظ على انعكاس السطح. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">5.3 استراتيجية إعادة الظهور: </font></span><font style="vertical-align: inherit;">تحديد التوقيت والإجراءات الأمثل لتجديد الطلاء الوقائي. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">5.4 وثائق الأداء: </font></span><font style="vertical-align: inherit;">الحفاظ على قاعدة بيانات لمقاييس الأداء مع مرور الوقت لإبلاغ المشاريع المستقبلية. </font></p>
+                            <p class="mb-2"><span class="font-semibold">5.1 Routine Monitoring:</span> Establish a schedule for periodic thermal performance assessment.</p>
+                            <p class="mb-2"><span class="font-semibold">5.2 Cleaning Procedures:</span> Develop specific cleaning protocols to maintain surface reflectivity.</p>
+                            <p class="mb-2"><span class="font-semibold">5.3 Reapplication Strategy:</span> Determine optimal timing and procedures for protective coating renewal.</p>
+                            <p class="mb-2"><span class="font-semibold">5.4 Performance Documentation:</span> Maintain a database of performance metrics over time to inform future projects.</p>
                             
                             <table class="w-full border text-sm mt-3 mb-4">
                                 <thead>
                                     <tr class="bg-gray-100">
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">نشاط الصيانة </font></th>
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">تكرار </font></th>
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">غاية </font></th>
+                                        <th class="p-2 border">Maintenance Activity</th>
+                                        <th class="p-2 border">Frequency</th>
+                                        <th class="p-2 border">Purpose</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">تنظيف السطح </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">ربع سنوي </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">إزالة الغبار/الحطام الذي يقلل من الانعكاس </font></td>
+                                        <td class="p-2 border">Surface Cleaning</td>
+                                        <td class="p-2 border">Quarterly</td>
+                                        <td class="p-2 border">Remove dust/debris that reduces reflectivity</td>
                                     </tr>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">تقييم التصوير الحراري </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">سنويا </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">تحقق من أداء التنظيم الحراري </font></td>
+                                        <td class="p-2 border">Thermal Imaging Assessment</td>
+                                        <td class="p-2 border">Annually</td>
+                                        <td class="p-2 border">Verify thermal regulation performance</td>
                                     </tr>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">تجديد الطلاء الواقي </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">كل 3-5 سنوات </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">الحفاظ على الأشعة فوق البنفسجية والحماية من الرطوبة </font></td>
+                                        <td class="p-2 border">Protective Coating Renewal</td>
+                                        <td class="p-2 border">Every 3-5 years</td>
+                                        <td class="p-2 border">Maintain UV and moisture protection</td>
                                     </tr>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">ختم الكراك </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">حسب الحاجة </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">منع تسلل الماء </font></td>
+                                        <td class="p-2 border">Crack Sealing</td>
+                                        <td class="p-2 border">As needed</td>
+                                        <td class="p-2 border">Prevent water infiltration</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -874,20 +866,17 @@
                     </div>
                     
                     <div>
-                        <h3 class="text-lg font-semibold text-blue-800 mb-2"><font style="vertical-align: inherit;">6. نقل المعرفة وبناء القدرات </font></h3>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">6. Knowledge Transfer & Capacity Building</h3>
                         <div class="pl-6">
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">6.1 برامج التدريب: </font></span><font style="vertical-align: inherit;">تطوير مواد تدريبية للمهندسين وموظفي الصيانة. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">6.2 الوثائق: </font></span><font style="vertical-align: inherit;">إنشاء إرشادات شاملة للتنفيذ بناءً على الخبرة المحلية. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">6.3 شراكة البحث: </font></span><font style="vertical-align: inherit;">إنشاء التعاون مع الجامعات المحلية لدراسة الأداء طويل الأجل. </font></p>
-                            <p class="mb-2"><span class="font-semibold"><font style="vertical-align: inherit;">6.4 تطوير المعايير: </font></span><font style="vertical-align: inherit;">العمل مع الهيئات التنظيمية لتطوير معايير الأسفلت الحراري في العراق. </font></p>
+                            <p class="mb-2"><span class="font-semibold">6.1 Training Programs:</span> Develop training materials for engineers and maintenance personnel.</p>
+                            <p class="mb-2"><span class="font-semibold">6.2 Documentation:</span> Create comprehensive implementation guidelines based on local experience.</p>
+                            <p class="mb-2"><span class="font-semibold">6.3 Research Partnership:</span> Establish collaboration with local universities to study long-term performance.</p>
+                            <p class="mb-2"><span class="font-semibold">6.4 Standards Development:</span> Work with regulatory bodies to develop standards for thermochromic asphalt in Iraq.</p>
                             
                             <div class="bg-green-50 border-l-4 border-green-500 p-3 mt-2">
                                 <p class="text-sm text-green-800">
-                                    <span class="font-semibold"><font style="vertical-align: inherit;">تأثير الاستدامة: </font></span><font style="vertical-align: inherit;">توثيق
- وقياس الفوائد البيئية بما في ذلك الحد من جزيرة الحرارة الحضرية ، وفورات
- الطاقة في المباني المجاورة ، وتقليل تردد الصيانة لبناء الدعم للتبني 
-الأوسع.
-                                 </font></p>
+                                    <span class="font-semibold">Sustainability Impact:</span> Document and quantify environmental benefits including urban heat island reduction, energy savings in adjacent buildings, and reduced maintenance frequency to build support for wider adoption.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -896,123 +885,123 @@
                 <!-- Regional Considerations -->
                 <div class="card mt-6">
                     <div class="card-header">
-                        <i class="fas fa-map mr-2 text-blue-600"></i><font style="vertical-align: inherit;">اعتبارات التنفيذ الإقليمية
-                     </font></div>
+                        <i class="fas fa-map mr-2 text-blue-600"></i>Regional Implementation Considerations
+                    </div>
                     
                     <div class="overflow-x-auto">
                         <table class="w-full">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="p-3 border"><font style="vertical-align: inherit;">منطقة </font></th>
-                                    <th class="p-3 border"><font style="vertical-align: inherit;">التحديات الرئيسية </font></th>
-                                    <th class="p-3 border"><font style="vertical-align: inherit;">الصياغة الموصى بها </font></th>
-                                    <th class="p-3 border"><font style="vertical-align: inherit;">أولوية التنفيذ </font></th>
+                                    <th class="p-3 border">Region</th>
+                                    <th class="p-3 border">Key Challenges</th>
+                                    <th class="p-3 border">Recommended Formulation</th>
+                                    <th class="p-3 border">Implementation Priority</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="p-3 border font-medium"><font style="vertical-align: inherit;">بغداد ووسط العراق </font></td>
+                                    <td class="p-3 border font-medium">Baghdad & Central Iraq</td>
                                     <td class="p-3 border">
                                         <ul class="list-disc pl-5 text-sm">
-                                            <li><font style="vertical-align: inherit;">حرارة الصيف الشديدة (45-50 درجة مئوية) </font></li>
-                                            <li><font style="vertical-align: inherit;">تأثير جزيرة الحرارة الحضرية الكبير </font></li>
-                                            <li><font style="vertical-align: inherit;">مجلدات حركة المرور عالية </font></li>
+                                            <li>Extreme summer heat (45-50°C)</li>
+                                            <li>Significant urban heat island effect</li>
+                                            <li>High traffic volumes</li>
                                         </ul>
                                     </td>
                                     <td class="p-3 border">
                                         <ul class="list-disc pl-5 text-sm">
-                                            <li><font style="vertical-align: inherit;">4-5 ٪ الصباغ الحراري </font></li>
-                                            <li><font style="vertical-align: inherit;">الأسفلت قاعدة البوليمر المعدلة </font></li>
-                                            <li><font style="vertical-align: inherit;">طلاء واقية مسعور </font></li>
+                                            <li>4-5% thermochromic pigment</li>
+                                            <li>Polymer-modified base asphalt</li>
+                                            <li>Hydrophobic protective coating</li>
                                         </ul>
                                     </td>
                                     <td class="p-3 border">
-                                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"><font style="vertical-align: inherit;">أولوية عالية </font></span>
-                                        <p class="text-sm mt-1"><font style="vertical-align: inherit;">ستستفيد المراكز الحضرية الرئيسية ذات التأثير الكبير لجزيرة الحرارة </font></p>
+                                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">High Priority</span>
+                                        <p class="text-sm mt-1">Major urban centers with significant heat island effect will benefit most</p>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3 border font-medium"><font style="vertical-align: inherit;">البصرة والعراق الجنوبي </font></td>
+                                    <td class="p-3 border font-medium">Basra & Southern Iraq</td>
                                     <td class="p-3 border">
                                         <ul class="list-disc pl-5 text-sm">
-                                            <li><font style="vertical-align: inherit;">الحرارة الشديدة مع رطوبة عالية </font></li>
-                                            <li><font style="vertical-align: inherit;">إشعاع الأشعة فوق البنفسجية المكثفة </font></li>
-                                            <li><font style="vertical-align: inherit;">التعرض للملوحة الساحلية </font></li>
+                                            <li>Extreme heat with high humidity</li>
+                                            <li>Intense UV radiation</li>
+                                            <li>Coastal salinity exposure</li>
                                         </ul>
                                     </td>
                                     <td class="p-3 border">
                                         <ul class="list-disc pl-5 text-sm">
-                                            <li><font style="vertical-align: inherit;">صياغة حرارية مقاومة للأشعة فوق البنفسجية </font></li>
-                                            <li><font style="vertical-align: inherit;">ارتفاع تركيز الصباغ (5-6 ٪) </font></li>
-                                            <li><font style="vertical-align: inherit;">نظام الطلاء الواقي الممتاز </font></li>
+                                            <li>UV-resistant thermochromic formulation</li>
+                                            <li>Higher pigment concentration (5-6%)</li>
+                                            <li>Premium protective coating system</li>
                                         </ul>
                                     </td>
                                     <td class="p-3 border">
-                                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"><font style="vertical-align: inherit;">أولوية عالية </font></span>
-                                        <p class="text-sm mt-1"><font style="vertical-align: inherit;">الضغوط الحرارية الحادة تجعل هذه المنطقة مثالية للتنفيذ </font></p>
+                                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">High Priority</span>
+                                        <p class="text-sm mt-1">Severe thermal stresses make this region ideal for implementation</p>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3 border font-medium"><font style="vertical-align: inherit;">الموصل وشمال العراق </font></td>
+                                    <td class="p-3 border font-medium">Mosul & Northern Iraq</td>
                                     <td class="p-3 border">
                                         <ul class="list-disc pl-5 text-sm">
-                                            <li><font style="vertical-align: inherit;">تقلبات درجة الحرارة الواسعة </font></li>
-                                            <li><font style="vertical-align: inherit;">دورات التجميد في الشتاء </font></li>
-                                            <li><font style="vertical-align: inherit;">التعرض المعتدل للأشعة فوق البنفسجية </font></li>
+                                            <li>Wide temperature fluctuations</li>
+                                            <li>Freeze-thaw cycles in winter</li>
+                                            <li>Moderate UV exposure</li>
                                         </ul>
                                     </td>
                                     <td class="p-3 border">
                                         <ul class="list-disc pl-5 text-sm">
-                                            <li><font style="vertical-align: inherit;">الصباغ الحراري واسع الطيف </font></li>
-                                            <li><font style="vertical-align: inherit;">تحسين أداء درجات الحرارة المنخفضة </font></li>
-                                            <li><font style="vertical-align: inherit;">طلاء واقية قياسي </font></li>
+                                            <li>Broad-spectrum thermochromic pigment</li>
+                                            <li>Enhanced low-temperature performance</li>
+                                            <li>Standard protective coating</li>
                                         </ul>
                                     </td>
                                     <td class="p-3 border">
-                                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"><font style="vertical-align: inherit;">الأولوية المتوسطة </font></span>
-                                        <p class="text-sm mt-1"><font style="vertical-align: inherit;">فوائد لكل من التبريد الصيفي والأداء الشتوي </font></p>
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Medium Priority</span>
+                                        <p class="text-sm mt-1">Benefits for both summer cooling and winter performance</p>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3 border font-medium"><font style="vertical-align: inherit;">المناطق الصحراوية الغربية </font></td>
+                                    <td class="p-3 border font-medium">Western Desert Regions</td>
                                     <td class="p-3 border">
                                         <ul class="list-disc pl-5 text-sm">
-                                            <li><font style="vertical-align: inherit;">تقلبات درجة الحرارة القصوى </font></li>
-                                            <li><font style="vertical-align: inherit;">تعرض الغبار الثقيل </font></li>
-                                            <li><font style="vertical-align: inherit;">انخفاض الرطوبة </font></li>
+                                            <li>Extreme temperature swings</li>
+                                            <li>Heavy dust exposure</li>
+                                            <li>Low humidity</li>
                                         </ul>
                                     </td>
                                     <td class="p-3 border">
                                         <ul class="list-disc pl-5 text-sm">
-                                            <li><font style="vertical-align: inherit;">صياغة مقاومة للغبار </font></li>
-                                            <li><font style="vertical-align: inherit;">نظام الطلاء التنظيف الذاتي </font></li>
-                                            <li><font style="vertical-align: inherit;">الاستقرار الميكانيكي المحسن </font></li>
+                                            <li>Dust-resistant formulation</li>
+                                            <li>Self-cleaning coating system</li>
+                                            <li>Enhanced mechanical stability</li>
                                         </ul>
                                     </td>
                                     <td class="p-3 border">
-                                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"><font style="vertical-align: inherit;">تطبيق متخصص </font></span>
-                                        <p class="text-sm mt-1"><font style="vertical-align: inherit;">النظر في ممرات الطرق السريعة الاستراتيجية </font></p>
+                                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Specialized Application</span>
+                                        <p class="text-sm mt-1">Consider for strategic highway corridors</p>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3 border font-medium"><font style="vertical-align: inherit;">المنطقة الكردية </font></td>
+                                    <td class="p-3 border font-medium">Kurdish Region</td>
                                     <td class="p-3 border">
                                         <ul class="list-disc pl-5 text-sm">
-                                            <li><font style="vertical-align: inherit;">تقلب المناخ الجبلي </font></li>
-                                            <li><font style="vertical-align: inherit;">الثلج الشتوي والتجميد </font></li>
-                                            <li><font style="vertical-align: inherit;">حرارة الصيف المعتدلة </font></li>
+                                            <li>Mountain climate variability</li>
+                                            <li>Winter snow and freezing</li>
+                                            <li>Moderate summer heat</li>
                                         </ul>
                                     </td>
                                     <td class="p-3 border">
                                         <ul class="list-disc pl-5 text-sm">
-                                            <li><font style="vertical-align: inherit;">صياغة متعددة الموسمين </font></li>
-                                            <li><font style="vertical-align: inherit;">محسّنة مقاومة تجميد ذرة </font></li>
-                                            <li><font style="vertical-align: inherit;">المحتوى الحراري المعتدل (3-4 ٪) </font></li>
+                                            <li>Multi-seasonal formulation</li>
+                                            <li>Enhanced freeze-thaw resistance</li>
+                                            <li>Moderate thermochromic content (3-4%)</li>
                                         </ul>
                                     </td>
                                     <td class="p-3 border">
-                                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"><font style="vertical-align: inherit;">الأولوية المتوسطة </font></span>
-                                        <p class="text-sm mt-1"><font style="vertical-align: inherit;">التركيز على المراكز الحضرية الرئيسية أولاً </font></p>
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Medium Priority</span>
+                                        <p class="text-sm mt-1">Focus on major urban centers first</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -1023,91 +1012,89 @@
                 <!-- Pilot Project Framework -->
                 <div class="card mt-6">
                     <div class="card-header">
-                        <i class="fas fa-clipboard-check mr-2 text-blue-600"></i><font style="vertical-align: inherit;">إطار المشروع التجريبي
-                     </font></div>
+                        <i class="fas fa-clipboard-check mr-2 text-blue-600"></i>Pilot Project Framework
+                    </div>
                     
-                    <p class="mb-4"><font style="vertical-align: inherit;">
-                        قبل التنفيذ على نطاق واسع ، يوصى بنهج المشروع 
-التجريبي منظم للتحقق من صحة الأداء في ظل الظروف المحلية وبناء الخبرة 
-الفنية.
-                     </font></p>
+                    <p class="mb-4">
+                        Before full-scale implementation, a structured pilot project approach is recommended to validate performance under local conditions and build technical expertise.
+                    </p>
                     
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-blue-800 mb-2"><font style="vertical-align: inherit;">النهج التجريبي الموصى به: </font></h3>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">Recommended Pilot Approach:</h3>
                         
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                             <div class="border rounded-lg p-4 bg-blue-50">
-                                <h4 class="font-semibold text-blue-800 mb-2"><font style="vertical-align: inherit;">المرحلة 1: اختبار صغير </font></h4>
+                                <h4 class="font-semibold text-blue-800 mb-2">Phase 1: Small-Scale Testing</h4>
                                 <ul class="list-disc pl-5 text-sm">
-                                    <li><font style="vertical-align: inherit;">أقسام اختبار 100-200 متر </font></li>
-                                    <li><font style="vertical-align: inherit;">تركيبات متعددة جنبًا إلى جنب </font></li>
-                                    <li><font style="vertical-align: inherit;">معدات مراقبة شاملة </font></li>
-                                    <li><font style="vertical-align: inherit;">المدة: 1 سنة </font></li>
+                                    <li>100-200 meter test sections</li>
+                                    <li>Multiple formulations side-by-side</li>
+                                    <li>Comprehensive monitoring equipment</li>
+                                    <li>Duration: 1 year</li>
                                 </ul>
                             </div>
                             <div class="border rounded-lg p-4 bg-indigo-50">
-                                <h4 class="font-semibold text-indigo-800 mb-2"><font style="vertical-align: inherit;">المرحلة 2: التنفيذ المستهدف </font></h4>
+                                <h4 class="font-semibold text-indigo-800 mb-2">Phase 2: Targeted Implementation</h4>
                                 <ul class="list-disc pl-5 text-sm">
-                                    <li><font style="vertical-align: inherit;">1-2 كم أقسام ممر حضري </font></li>
-                                    <li><font style="vertical-align: inherit;">الصياغة المحسنة على أساس المرحلة 1 </font></li>
-                                    <li><font style="vertical-align: inherit;">مراقبة الأداء العادية </font></li>
-                                    <li><font style="vertical-align: inherit;">المدة: 2 سنوات </font></li>
+                                    <li>1-2 km urban corridor sections</li>
+                                    <li>Optimized formulation based on Phase 1</li>
+                                    <li>Regular performance monitoring</li>
+                                    <li>Duration: 2 years</li>
                                 </ul>
                             </div>
                             <div class="border rounded-lg p-4 bg-purple-50">
-                                <h4 class="font-semibold text-purple-800 mb-2"><font style="vertical-align: inherit;">المرحلة 3: النشر الموسع </font></h4>
+                                <h4 class="font-semibold text-purple-800 mb-2">Phase 3: Expanded Deployment</h4>
                                 <ul class="list-disc pl-5 text-sm">
-                                    <li><font style="vertical-align: inherit;">أقسام الطرق السريعة متعددة الكيلومترات </font></li>
-                                    <li><font style="vertical-align: inherit;">تركيبات إقليمية خاصة </font></li>
-                                    <li><font style="vertical-align: inherit;">تكامل السياسات والمعايير </font></li>
-                                    <li><font style="vertical-align: inherit;">المدة: مستمر </font></li>
+                                    <li>Multi-kilometer highway sections</li>
+                                    <li>Regional-specific formulations</li>
+                                    <li>Policy integration and standards</li>
+                                    <li>Duration: Ongoing</li>
                                 </ul>
                             </div>
                         </div>
                         
                         <div class="border rounded-lg p-4 bg-gray-50 mb-4">
-                            <h4 class="font-semibold mb-2"><font style="vertical-align: inherit;">المواقع التجريبية الموصى بها: </font></h4>
+                            <h4 class="font-semibold mb-2">Recommended Pilot Locations:</h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <p class="font-medium"><font style="vertical-align: inherit;">بغداد: </font></p>
+                                    <p class="font-medium">Baghdad:</p>
                                     <ul class="list-disc pl-5 text-sm">
-                                        <li><font style="vertical-align: inherit;">الطرق الشريانية الحضرية ذات تأثير جزيرة الحرارة الهامة </font></li>
-                                        <li><font style="vertical-align: inherit;">طرق الحرم الجامعي للمراقبة الأكاديمية </font></li>
-                                        <li><font style="vertical-align: inherit;">طرق الوصول إلى المنطقة الصناعية مع حركة مرور شاحنات ثقيلة </font></li>
+                                        <li>Urban arterial roads with significant heat island effect</li>
+                                        <li>University campus roads for academic monitoring</li>
+                                        <li>Industrial zone access roads with heavy truck traffic</li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <p class="font-medium"><font style="vertical-align: inherit;">المواقع الإقليمية: </font></p>
+                                    <p class="font-medium">Regional Sites:</p>
                                     <ul class="list-disc pl-5 text-sm">
-                                        <li><font style="vertical-align: inherit;">البصرة: شريحة الطرق السريعة الساحلية مع التعرض الرطوبة العالية </font></li>
-                                        <li><font style="vertical-align: inherit;">الموصل: قسم الطرق الحضرية التي تعاني من دورات ذوبان الجليد </font></li>
-                                        <li><font style="vertical-align: inherit;">المقاطعة الغربية: قسم الطرق السريعة الصحراوية مع تقلبات درجات الحرارة القصوى </font></li>
+                                        <li>Basra: Coastal highway segment with high humidity exposure</li>
+                                        <li>Mosul: Urban road section experiencing freeze-thaw cycles</li>
+                                        <li>Western Province: Desert highway section with extreme temperature swings</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="border rounded-lg p-4 bg-gray-50">
-                            <h4 class="font-semibold mb-2"><font style="vertical-align: inherit;">إطار المراقبة والتقييم: </font></h4>
+                            <h4 class="font-semibold mb-2">Monitoring & Evaluation Framework:</h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <p class="font-medium"><font style="vertical-align: inherit;">مقاييس الأداء: </font></p>
+                                    <p class="font-medium">Performance Metrics:</p>
                                     <ul class="list-disc pl-5 text-sm">
-                                        <li><font style="vertical-align: inherit;">فرق درجة الحرارة مقابل أقسام التحكم </font></li>
-                                        <li><font style="vertical-align: inherit;">تقييم تدهور السطح (ربع سنوي) </font></li>
-                                        <li><font style="vertical-align: inherit;">كفاءة انتقال اللون مع مرور الوقت </font></li>
-                                        <li><font style="vertical-align: inherit;">الأداء الميكانيكي (الصراخ ، التكسير) </font></li>
-                                        <li><font style="vertical-align: inherit;">متطلبات الصيانة </font></li>
+                                        <li>Temperature differential vs. control sections</li>
+                                        <li>Surface degradation assessment (quarterly)</li>
+                                        <li>Color transition efficiency over time</li>
+                                        <li>Mechanical performance (rutting, cracking)</li>
+                                        <li>Maintenance requirements</li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <p class="font-medium"><font style="vertical-align: inherit;">الوثائق والإبلاغ: </font></p>
+                                    <p class="font-medium">Documentation & Reporting:</p>
                                     <ul class="list-disc pl-5 text-sm">
-                                        <li><font style="vertical-align: inherit;">تقارير الأداء الشهرية </font></li>
-                                        <li><font style="vertical-align: inherit;">التقييمات الفنية الفصلية </font></li>
-                                        <li><font style="vertical-align: inherit;">التقييم الشامل السنوي </font></li>
-                                        <li><font style="vertical-align: inherit;">مواد حملة المعلومات العامة </font></li>
-                                        <li><font style="vertical-align: inherit;">النشر الأكاديمي للنتائج </font></li>
+                                        <li>Monthly performance reports</li>
+                                        <li>Quarterly technical assessments</li>
+                                        <li>Annual comprehensive evaluation</li>
+                                        <li>Public information campaign materials</li>
+                                        <li>Academic publication of findings</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1120,194 +1107,191 @@
             <div id="content-documentation" class="tab-content mt-6">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fas fa-book mr-2 text-blue-600"></i><font style="vertical-align: inherit;">الأساس الفني
-                     </font></div>
+                        <i class="fas fa-book mr-2 text-blue-600"></i>Technical Foundation
+                    </div>
                     
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold mb-2"><font style="vertical-align: inherit;">أساسيات المواد الحرارية </font></h3>
-                        <p class="mb-4"><font style="vertical-align: inherit;">
-                            يشتمل الإسفلت الحراري على أصباغ خاصة تغير اللون بشكل عكسي استجابة لتغيرات درجة الحرارة. 
-                            تعمل هذه التكنولوجيا من خلال دمج المواد الحرارية الدقيقة في موثق الإسفلت أو كمعالجة سطحية.
-                         </font></p>
+                        <h3 class="text-lg font-semibold mb-2">Thermochromic Material Fundamentals</h3>
+                        <p class="mb-4">
+                            Thermochromic asphalt incorporates special pigments that change color reversibly in response to temperature variations. 
+                            This technology works by integrating microencapsulated thermochromic materials into the asphalt binder or as a surface treatment.
+                        </p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">آلية العمل: </font></h4>
+                                <h4 class="font-medium mb-2">Working Mechanism:</h4>
                                 <ul class="list-disc pl-5">
-                                    <li><font style="vertical-align: inherit;">في درجات حرارة منخفضة ، تبدو المادة أغمق ، وتمتص المزيد من الإشعاع الشمسي لتدفئة الرصيف </font></li>
-                                    <li><font style="vertical-align: inherit;">في درجات حرارة عالية ، ينتقل إلى لون أخف ، مما يعكس المزيد من الإشعاع الشمسي لتقليل امتصاص الحرارة </font></li>
-                                    <li><font style="vertical-align: inherit;">يحدث الانتقال حول عتبة درجة حرارة محددة (عادة 30-40 درجة مئوية) </font></li>
-                                    <li><font style="vertical-align: inherit;">تساعد هذه الاستجابة الديناميكية على تنظيم درجة حرارة السطح على مدار السنة </font></li>
+                                    <li>At low temperatures, the material appears darker, absorbing more solar radiation to warm the pavement</li>
+                                    <li>At high temperatures, it transitions to a lighter color, reflecting more solar radiation to reduce heat absorption</li>
+                                    <li>The transition occurs around a specific temperature threshold (typically 30-40°C)</li>
+                                    <li>This dynamic response helps regulate surface temperature year-round</li>
                                 </ul>
                             </div>
                             <div>
-                                <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">تكوين المواد: </font></h4>
+                                <h4 class="font-medium mb-2">Material Composition:</h4>
                                 <ul class="list-disc pl-5">
-                                    <li><font style="vertical-align: inherit;">أصباغ Leuco: المركبات العضوية التي تغير اللون مع درجة الحرارة </font></li>
-                                    <li><font style="vertical-align: inherit;">الكبش الدقيق: يحمي المواد الحرارية من التدهور </font></li>
-                                    <li><font style="vertical-align: inherit;">مطوري الألوان: التحكم في درجة حرارة الانتقال وشدة اللون </font></li>
-                                    <li><font style="vertical-align: inherit;">مثبطات الأشعة فوق البنفسجية: حماية من تدهور الإشعاع الشمسي </font></li>
-                                    <li><font style="vertical-align: inherit;">عوامل الربط: ضمان التكامل المناسب مع مواد الإسفلت </font></li>
+                                    <li>Leuco dyes: Organic compounds that change color with temperature</li>
+                                    <li>Microencapsulation: Protects the thermochromic materials from degradation</li>
+                                    <li>Color developers: Control the transition temperature and color intensity</li>
+                                    <li>UV inhibitors: Protect against solar radiation degradation</li>
+                                    <li>Binding agents: Ensure proper integration with asphalt materials</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold mb-2"><font style="vertical-align: inherit;">النماذج الرياضية </font></h3>
-                        <p class="mb-4"><font style="vertical-align: inherit;">
-                            تستخدم أداة تحليل الأداء عدة نماذج رياضية للتنبؤ بسلوك الإسفلت الحراري في ظل ظروف مختلفة.
-                         </font></p>
+                        <h3 class="text-lg font-semibold mb-2">Mathematical Models</h3>
+                        <p class="mb-4">
+                            The performance analysis tool uses several mathematical models to predict thermochromic asphalt behavior under various conditions.
+                        </p>
                         
                         <div class="bg-gray-50 p-4 rounded-lg mb-4">
-                            <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">وظيفة الامتصاص المعتمدة على درجة الحرارة: </font></h4>
-                            <p class="mb-2"><font style="vertical-align: inherit;">يختلف امتصاص الطاقة الشمسية للإسفلت الحراري مع درجة الحرارة حسب: </font></p>
+                            <h4 class="font-medium mb-2">Temperature-Dependent Absorptivity Function:</h4>
+                            <p class="mb-2">The solar absorptivity of thermochromic asphalt varies with temperature according to:</p>
                             <div class="bg-white p-3 border rounded text-center">
-                                <p><font style="vertical-align: inherit;">α (t) = α </font><sub><font style="vertical-align: inherit;">min </font></sub><font style="vertical-align: inherit;">+ (α </font><sub><font style="vertical-align: inherit;">max </font></sub><font style="vertical-align: inherit;">- α </font><sub><font style="vertical-align: inherit;">min </font></sub><font style="vertical-align: inherit;">) / (1 + e </font><sup><font style="vertical-align: inherit;">-K (tt </font><sub><font style="vertical-align: inherit;">c </font></sub><font style="vertical-align: inherit;">) </font></sup><font style="vertical-align: inherit;">) </font></p>
+                                <p>α(T) = α<sub>min</sub> + (α<sub>max</sub> - α<sub>min</sub>) / (1 + e<sup>-k(T-T<sub>c</sub>)</sup>)</p>
                             </div>
-                            <p class="mt-2 text-sm"><font style="vertical-align: inherit;">
-                                أين: </font><br><font style="vertical-align: inherit;">
-                                α (t) = امتصاص الطاقة الشمسية المعتمدة على درجة الحرارة </font><br><font style="vertical-align: inherit;">
-                                α </font><sub><font style="vertical-align: inherit;">min </font></sub><font style="vertical-align: inherit;">= الحد الأدنى من الامتصاص (حالة درجة حرارة عالية) </font><br><font style="vertical-align: inherit;">
-                                α </font><sub><font style="vertical-align: inherit;">Max </font></sub><font style="vertical-align: inherit;">= أقصى امتصاص (حالة درجة حرارة منخفضة) </font><br><font style="vertical-align: inherit;">
-                                T </font><sub><font style="vertical-align: inherit;">C </font></sub><font style="vertical-align: inherit;">= درجة حرارة الانتقال الحرجة (° C) </font><br><font style="vertical-align: inherit;">
-                                K = معلمة الانحدار الانتقالي
-                             </font></p>
+                            <p class="mt-2 text-sm">
+                                Where:<br>
+                                α(T) = Temperature-dependent solar absorptivity<br>
+                                α<sub>min</sub> = Minimum absorptivity (high temperature state)<br>
+                                α<sub>max</sub> = Maximum absorptivity (low temperature state)<br>
+                                T<sub>c</sub> = Critical transition temperature (°C)<br>
+                                k = Transition steepness parameter
+                            </p>
                         </div>
                         
                         <div class="bg-gray-50 p-4 rounded-lg mb-4">
-                            <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">نموذج نقل الحرارة: </font></h4>
-                            <p class="mb-2"><font style="vertical-align: inherit;">يتم حساب درجة حرارة السطح لرصيف الإسفلت باستخدام: </font></p>
+                            <h4 class="font-medium mb-2">Heat Transfer Model:</h4>
+                            <p class="mb-2">The surface temperature of asphalt pavement is calculated using:</p>
                             <div class="bg-white p-3 border rounded text-center">
-                                <p><font style="vertical-align: inherit;">t (z ، t) = t </font><sub><font style="vertical-align: inherit;">air </font></sub><font style="vertical-align: inherit;">(t) + [α (t) · i (t) / h] × [1 - e </font><sup><font style="vertical-align: inherit;">-βz </font></sup><font style="vertical-align: inherit;">] + ΔT </font><sub><font style="vertical-align: inherit;">( </font></sub><font style="vertical-align: inherit;">z ، t) </font></p>
+                                <p>T(z,t) = T<sub>air</sub>(t) + [α(T) · I(t) / h] × [1 - e<sup>-βz</sup>] + ΔT<sub>history</sub>(z,t)</p>
                             </div>
-                            <p class="mt-2 text-sm"><font style="vertical-align: inherit;">
-                                أين: </font><br><font style="vertical-align: inherit;">
-                                t (z ، t) = درجة الحرارة عند العمق z والوقت t (° C) </font><br><font style="vertical-align: inherit;">
-                                T </font><sub><font style="vertical-align: inherit;">الهواء </font></sub><font style="vertical-align: inherit;">(T) = درجة حرارة الهواء المحيط في الوقت T (° C) </font><br><font style="vertical-align: inherit;">
-                                i (t) = شدة الإشعاع الشمسي في الوقت t (w/m²) </font><br><font style="vertical-align: inherit;">
-                                H = معامل نقل الحرارة المشترك للحمل الحراري (W/M² · K) </font><br><font style="vertical-align: inherit;">
-                                ب = معامل الانتشار الحراري للأسفلت (M⁻⁻) </font><br><font style="vertical-align: inherit;">
-                                ΔT </font><sub><font style="vertical-align: inherit;">تاريخ </font></sub><font style="vertical-align: inherit;">(z ، t) = مساهمة درجة الحرارة من الحالات الحرارية السابقة
-                             </font></p>
+                            <p class="mt-2 text-sm">
+                                Where:<br>
+                                T(z,t) = Temperature at depth z and time t (°C)<br>
+                                T<sub>air</sub>(t) = Ambient air temperature at time t (°C)<br>
+                                I(t) = Solar radiation intensity at time t (W/m²)<br>
+                                h = Combined convection-radiation heat transfer coefficient (W/m²·K)<br>
+                                β = Thermal diffusion coefficient for asphalt (m⁻¹)<br>
+                                ΔT<sub>history</sub>(z,t) = Temperature contribution from previous thermal states
+                            </p>
                         </div>
                         
                         <div class="bg-gray-50 p-4 rounded-lg">
-                            <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">نموذج تدهور المواد: </font></h4>
-                            <p class="mb-2"><font style="vertical-align: inherit;">تم تصميم تدهور الخواص الحرارية على المدى الطويل على النحو التالي: </font></p>
+                            <h4 class="font-medium mb-2">Material Degradation Model:</h4>
+                            <p class="mb-2">The long-term degradation of thermochromic properties is modeled as:</p>
                             <div class="bg-white p-3 border rounded text-center">
-                                <p><font style="vertical-align: inherit;">(t </font><sub><font style="vertical-align: inherit;">age </font></sub><font style="vertical-align: inherit;">) </font><sub><font style="vertical-align: inherit;">؛ </font></sub><font style="vertical-align: inherit;">a </font><sub><font style="vertical-align: inherit;">( </font></sub><sup><font style="vertical-align: inherit;">) </font></sup><font style="vertical-align: inherit;">= </font><sub><font style="vertical-align: inherit;">t </font></sub><font style="vertical-align: inherit;">a </font><sub><font style="vertical-align: inherit;">t </font></sub><font style="vertical-align: inherit;">، </font></p>
+                                <p>α(T,t<sub>age</sub>) = α(T) · [1 + γ<sub>UV</sub>(r) · t<sub>age</sub><sup>0.5</sup> + γ<sub>H</sub>(r) · H(r) · t<sub>age</sub>]</p>
                             </div>
-                            <p class="mt-2 text-sm"><font style="vertical-align: inherit;">
-                                أين: </font><br><font style="vertical-align: inherit;">
-                                ر </font><sub><font style="vertical-align: inherit;">العمر </font></sub><font style="vertical-align: inherit;">= عمر الإسفلت (سنوات) </font><br><font style="vertical-align: inherit;">
-                                γ </font><sub><font style="vertical-align: inherit;">UV </font></sub><font style="vertical-align: inherit;">(R) = معامل تدهور الأشعة فوق البنفسجية للمنطقة R (السنة · ·) </font><br><font style="vertical-align: inherit;">
-                                γ </font><sub><font style="vertical-align: inherit;">H </font></sub><font style="vertical-align: inherit;">(R) = معامل تدهور الرطوبة للمنطقة R (السنة) </font><br><font style="vertical-align: inherit;">
-                                H (R) = متوسط ​​الرطوبة النسبية للمنطقة R (٪)
-                             </font></p>
+                            <p class="mt-2 text-sm">
+                                Where:<br>
+                                t<sub>age</sub> = Asphalt age (years)<br>
+                                γ<sub>UV</sub>(r) = UV degradation coefficient for region r (year⁻⁰·⁵)<br>
+                                γ<sub>H</sub>(r) = Humidity degradation coefficient for region r (year⁻¹)<br>
+                                H(r) = Average relative humidity for region r (%)
+                            </p>
                         </div>
                     </div>
                     
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold mb-2"><font style="vertical-align: inherit;">حساب مقاييس الأداء </font></h3>
+                        <h3 class="text-lg font-semibold mb-2">Performance Metrics Calculation</h3>
                         
                         <div class="mb-4">
-                            <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">الكفاءة الحرارية (TE): </font></h4>
+                            <h4 class="font-medium mb-2">Thermal Efficiency (TE):</h4>
                             <div class="bg-white p-3 border rounded text-center">
-                                <p><font style="vertical-align: inherit;">TE (R) = [(T </font><sub><font style="vertical-align: inherit;">Max ، Conv </font></sub><font style="vertical-align: inherit;">(R) - T </font><sub><font style="vertical-align: inherit;">Max ، Thermo </font></sub><font style="vertical-align: inherit;">(R)) / (T </font><sub><font style="vertical-align: inherit;">Max ، Conv </font></sub><font style="vertical-align: inherit;">(R) - T </font><sub><font style="vertical-align: inherit;">Air ، AVG </font></sub><font style="vertical-align: inherit;">(R))] × 100 ٪ </font></p>
+                                <p>TE(r) = [(T<sub>max,conv</sub>(r) - T<sub>max,thermo</sub>(r)) / (T<sub>max,conv</sub>(r) - T<sub>air,avg</sub>(r))] × 100%</p>
                             </div>
-                            <p class="mt-2 text-sm"><font style="vertical-align: inherit;">
-                                هذا يحسب مدى فعالية الإسفلت الحراري يقلل من درجة حرارة السطح مقارنة بالإسفلت التقليدي.
-                             </font></p>
+                            <p class="mt-2 text-sm">
+                                This calculates how effectively the thermochromic asphalt reduces surface temperature compared to conventional asphalt.
+                            </p>
                         </div>
                         
                         <div class="mb-4">
-                            <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">مؤشر المتانة (DI): </font></h4>
+                            <h4 class="font-medium mb-2">Durability Index (DI):</h4>
                             <div class="bg-white p-3 border rounded text-center">
-                                <p><font style="vertical-align: inherit;">di (r ، t </font><sub><font style="vertical-align: inherit;">age </font></sub><font style="vertical-align: inherit;">[n </font><sub><font style="vertical-align: inherit;">tc </font></sub><font style="vertical-align: inherit;">(r) · Δ </font><sub><font style="vertical-align: inherit;">· </font></sub><font style="vertical-align: inherit;">t) kh t) </font><sub><font style="vertical-align: inherit;">) </font></sub><font style="vertical-align: inherit;">· </font><sub><font style="vertical-align: inherit;">- </font></sub><font style="vertical-align: inherit;">t </font><sub><font style="vertical-align: inherit;">age </font></sub><sup><font style="vertical-align: inherit;">0.5 </font></sup></p>
+                                <p>DI(r,t<sub>age</sub>) = 100 - [(N<sub>TC</sub>(r) · ΔT<sub>avg</sub>(r)) / 1000] · t<sub>age</sub> - K<sub>UV</sub>(r) · t<sub>age</sub><sup>0.5</sup></p>
                             </div>
-                            <p class="mt-2 text-sm"><font style="vertical-align: inherit;">
-                                هذا يقدر المتانة المادية بالنظر إلى ركوب
- الدراجات الحرارية وتدهور الأشعة فوق البنفسجية مع مرور الوقت.
-                             </font></p>
+                            <p class="mt-2 text-sm">
+                                This estimates material durability considering thermal cycling and UV degradation over time.
+                            </p>
                         </div>
                         
                         <div>
-                            <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">مؤشر الأداء الإقليمي (RPI): </font></h4>
+                            <h4 class="font-medium mb-2">Regional Performance Index (RPI):</h4>
                             <div class="bg-white p-3 border rounded text-center">
-                                <p><font style="vertical-align: inherit;">RPI (R) = W </font><sub><font style="vertical-align: inherit;">1 </font></sub><font style="vertical-align: inherit;">· TE (R) + W </font><sub><font style="vertical-align: inherit;">2 </font></sub><font style="vertical-align: inherit;">· DI (R ، 5) + W </font><sub><font style="vertical-align: inherit;">3 </font></sub><font style="vertical-align: inherit;">· CE (R) </font></p>
+                                <p>RPI(r) = w<sub>1</sub> · TE(r) + w<sub>2</sub> · DI(r,5) + w<sub>3</sub> · CE(r)</p>
                             </div>
-                            <p class="mt-2 text-sm"><font style="vertical-align: inherit;">
-                                يجمع هذا المؤشر المرجح بين الكفاءة 
-الحرارية والمتانة وفعالية التكلفة لتوفير درجة الأداء الإجمالية.
-                             </font></p>
+                            <p class="mt-2 text-sm">
+                                This weighted index combines thermal efficiency, durability, and cost effectiveness to provide an overall performance score.
+                            </p>
                         </div>
                     </div>
                     
                     <div>
-                        <h3 class="text-lg font-semibold mb-2"><font style="vertical-align: inherit;">اعتبارات المناخ العراقي </font></h3>
-                        <p class="mb-4"><font style="vertical-align: inherit;">
-                            تتضمن أداة التحليل بيانات محددة لظروف المناخ
- العراقية ، والتي تؤثر بشكل كبير على أداء الإسفلت الحراري.
-                         </font></p>
+                        <h3 class="text-lg font-semibold mb-2">Iraqi Climate Considerations</h3>
+                        <p class="mb-4">
+                            The analysis tool incorporates specific data for Iraqi climate conditions, which significantly impact thermochromic asphalt performance.
+                        </p>
                         
                         <div class="overflow-x-auto">
                             <table class="w-full">
                                 <thead>
                                     <tr class="bg-gray-100">
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">منطقة </font></th>
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">ذروة درجة حرارة الصيف (درجة مئوية) </font></th>
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">درجة حرارة الشتاء (درجة مئوية) </font></th>
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">الإشعاع الشمسي (W/M²) </font></th>
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">رطوبة (٪) </font></th>
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">عامل UV </font></th>
-                                        <th class="p-2 border"><font style="vertical-align: inherit;">التحدي الرئيسي </font></th>
+                                        <th class="p-2 border">Region</th>
+                                        <th class="p-2 border">Peak Summer Temp (°C)</th>
+                                        <th class="p-2 border">Min Winter Temp (°C)</th>
+                                        <th class="p-2 border">Solar Radiation (W/m²)</th>
+                                        <th class="p-2 border">Humidity (%)</th>
+                                        <th class="p-2 border">UV Factor</th>
+                                        <th class="p-2 border">Key Challenge</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">بغداد </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">48-50 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">5-7 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">800-900 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">25-35 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">1.1 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">الحرارة الشديدة ، تأثير أوهي </font></td>
+                                        <td class="p-2 border">Baghdad</td>
+                                        <td class="p-2 border">48-50</td>
+                                        <td class="p-2 border">5-7</td>
+                                        <td class="p-2 border">800-900</td>
+                                        <td class="p-2 border">25-35</td>
+                                        <td class="p-2 border">1.1</td>
+                                        <td class="p-2 border">Extreme heat, UHI effect</td>
                                     </tr>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">البصرة </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">50-52 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">8-10 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">850-950 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">60-70 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">1.2 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">الحرارة + الرطوبة ، الملوحة </font></td>
+                                        <td class="p-2 border">Basra</td>
+                                        <td class="p-2 border">50-52</td>
+                                        <td class="p-2 border">8-10</td>
+                                        <td class="p-2 border">850-950</td>
+                                        <td class="p-2 border">60-70</td>
+                                        <td class="p-2 border">1.2</td>
+                                        <td class="p-2 border">Heat + humidity, salinity</td>
                                     </tr>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">الموصل </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">42-45 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">-2 إلى 0 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">750-850 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">35-45 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">1.0 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">تجميد الدورات </font></td>
+                                        <td class="p-2 border">Mosul</td>
+                                        <td class="p-2 border">42-45</td>
+                                        <td class="p-2 border">-2 to 0</td>
+                                        <td class="p-2 border">750-850</td>
+                                        <td class="p-2 border">35-45</td>
+                                        <td class="p-2 border">1.0</td>
+                                        <td class="p-2 border">Freeze-thaw cycles</td>
                                     </tr>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">erbil </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">40-44 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">-3 إلى 0 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">700-800 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">30-40 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">0.9 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">الاختلافات الموسمية الكبيرة </font></td>
+                                        <td class="p-2 border">Erbil</td>
+                                        <td class="p-2 border">40-44</td>
+                                        <td class="p-2 border">-3 to 0</td>
+                                        <td class="p-2 border">700-800</td>
+                                        <td class="p-2 border">30-40</td>
+                                        <td class="p-2 border">0.9</td>
+                                        <td class="p-2 border">Large seasonal variations</td>
                                     </tr>
                                     <tr>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">الأنبار </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">46-49 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">3-6 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">850-950 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">20-30 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">1.3 </font></td>
-                                        <td class="p-2 border"><font style="vertical-align: inherit;">العواصف الترابية ، الحرارة الشديدة </font></td>
+                                        <td class="p-2 border">Anbar</td>
+                                        <td class="p-2 border">46-49</td>
+                                        <td class="p-2 border">3-6</td>
+                                        <td class="p-2 border">850-950</td>
+                                        <td class="p-2 border">20-30</td>
+                                        <td class="p-2 border">1.3</td>
+                                        <td class="p-2 border">Dust storms, extreme heat</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1318,55 +1302,50 @@
                 <!-- Reference Studies -->
                 <div class="card mt-6">
                     <div class="card-header">
-                        <i class="fas fa-graduation-cap mr-2 text-blue-600"></i><font style="vertical-align: inherit;">الدراسات المرجعية
-                     </font></div>
+                        <i class="fas fa-graduation-cap mr-2 text-blue-600"></i>Reference Studies
+                    </div>
                     
-                    <p class="mb-4"><font style="vertical-align: inherit;">
-                        تشتمل أداة التحليل هذه على نتائج من العديد من 
-الدراسات البحثية حول تكنولوجيا الإسفلت الحرارية وأداء الرصيف في المناخات
- القصوى.
-                     </font></p>
+                    <p class="mb-4">
+                        This analysis tool incorporates findings from numerous research studies on thermochromic asphalt technology and pavement performance in extreme climates.
+                    </p>
                     
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold mb-2"><font style="vertical-align: inherit;">البحث الدولي الرئيسي: </font></h3>
+                        <h3 class="text-lg font-semibold mb-2">Key International Research:</h3>
                         <div class="border rounded-lg p-4 bg-gray-50 mb-4">
-                            <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">أداء الحد من درجة الحرارة: </font></h4>
+                            <h4 class="font-medium mb-2">Temperature Reduction Performance:</h4>
                             <ul class="list-disc pl-5">
-                                <li><span class="font-medium"><font style="vertical-align: inherit;">تشانغ وآخرون. (2021): </font></span><font style="vertical-align: inherit;">أظهر انخفاض درجة حرارة 3-7 درجة مئوية مع تركيز الصباغ الحراري 3-6 ٪. </font></li>
-                                <li><span class="font-medium"><font style="vertical-align: inherit;">دراسة طيار طوكيو (2019): </font></span><font style="vertical-align: inherit;">حققت حوالي 6.6 درجة مئوية درجة حرارة السطح السفلية باستخدام الصباغ الحراري الحراري 5 ٪ في الظروف الحضرية. </font></li>
-                                <li><span class="font-medium"><font style="vertical-align: inherit;">اختبار كليفلاند الميداني (2018): </font></span><font style="vertical-align: inherit;">تخفيضات في درجة الحرارة المسجلة تصل إلى 5.3 درجة مئوية في الصيف ، مما يقلل من التدرجات الحرارية بمقدار 17 ك/م. </font></li>
+                                <li><span class="font-medium">Zhang et al. (2021):</span> Demonstrated 3-7°C temperature reduction with 3-6% thermochromic pigment concentration.</li>
+                                <li><span class="font-medium">Tokyo Pilot Study (2019):</span> Achieved approximately 6.6°C lower surface temperature using 5% thermochromic pigment in urban conditions.</li>
+                                <li><span class="font-medium">Cleveland Field Test (2018):</span> Recorded temperature reductions up to 5.3°C in summer, lowering thermal gradients by 17 K/m.</li>
                             </ul>
                         </div>
                         
                         <div class="border rounded-lg p-4 bg-gray-50 mb-4">
-                            <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">دراسات المتانة والتدهور: </font></h4>
+                            <h4 class="font-medium mb-2">Durability and Degradation Studies:</h4>
                             <ul class="list-disc pl-5">
-                                <li><span class="font-medium"><font style="vertical-align: inherit;">تشن وآخرون. (2024): </font></span><font style="vertical-align: inherit;">وجد أن التعرض للأشعة فوق البنفسجية يقلل من الكفاءة الحرارية بنسبة 20-30 ٪ على مدى خمس سنوات. </font></li>
-                                <li><span class="font-medium"><font style="vertical-align: inherit;">Hu &amp; Yu (2016): </font></span><font style="vertical-align: inherit;">مواد حرارية البوليمرية تظهر متانة الرصيف في ظروف درجات الحرارة القصوى. </font></li>
-                                <li><span class="font-medium"><font style="vertical-align: inherit;">يو وآخرون. (2022): </font></span><font style="vertical-align: inherit;">الأداء الذي تم بحثه لخليط الإسفلت استجابة درجة الحرارة مع المواد الحرارية في ظل ظروف بيئية مختلفة. </font></li>
+                                <li><span class="font-medium">Chen et al. (2024):</span> Found that UV exposure reduces thermochromic efficiency by 20-30% over five years.</li>
+                                <li><span class="font-medium">Hu & Yu (2016):</span> Demonstrated polymeric thermochromic materials improve pavement durability in extreme temperature conditions.</li>
+                                <li><span class="font-medium">Yu et al. (2022):</span> Researched performance of temperature responsive asphalt mixture with thermochromic material under various environmental conditions.</li>
                             </ul>
                         </div>
                         
                         <div class="border rounded-lg p-4 bg-gray-50">
-                            <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">دراسات التأثير الاقتصادي والبيئي: </font></h4>
+                            <h4 class="font-medium mb-2">Economic and Environmental Impact Studies:</h4>
                             <ul class="list-disc pl-5">
-                                <li><span class="font-medium"><font style="vertical-align: inherit;">ليما وآخرون. (2022): </font></span><font style="vertical-align: inherit;">إمكانات الإسفلت الحرارية الموثقة للتخفيف من آثار جزيرة الحرارة الحضرية في المناطق المكتظة بالسكان. </font></li>
-                                <li><span class="font-medium"><font style="vertical-align: inherit;">Gong et al. (2023): </font></span><font style="vertical-align: inherit;">أجرى مراجعة منهجية على استراتيجيات لتقليل درجة حرارة رصيف الإسفلت. </font></li>
-                                <li><span class="font-medium"><font style="vertical-align: inherit;">HU (2016): </font></span><font style="vertical-align: inherit;">تحليل الفوائد الاقتصادية لتنفيذ الإسفلت الحراري ، مما يدل على عائد استثمار إيجابي على الرغم من ارتفاع التكاليف الأولية. </font></li>
+                                <li><span class="font-medium">Lima et al. (2022):</span> Documented thermochromic asphalt's potential to mitigate urban heat island effects in densely populated areas.</li>
+                                <li><span class="font-medium">Gong et al. (2023):</span> Conducted a systematic review on strategies for reducing asphalt pavement temperature.</li>
+                                <li><span class="font-medium">Hu (2016):</span> Analyzed economic benefits of thermochromic asphalt implementation, showing positive ROI despite higher initial costs.</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div>
-                        <h3 class="text-lg font-semibold mb-2"><font style="vertical-align: inherit;">البحوث العراقية الخاصة: </font></h3>
+                        <h3 class="text-lg font-semibold mb-2">Iraqi-Specific Research:</h3>
                         <div class="border rounded-lg p-4 bg-gray-50">
-                            <h4 class="font-medium mb-2"><font style="vertical-align: inherit;">دراسات تعديل الإسفلت المحلية: </font></h4>
+                            <h4 class="font-medium mb-2">Local Asphalt Modification Studies:</h4>
                             <ul class="list-disc pl-5">
-                                <li><span class="font-medium"><font style="vertical-align: inherit;">دارويش وآخرون. (2017): </font></span><font style="vertical-align: inherit;">تعديل
- درس للأسفلت الأسفلت 40/50 باستخدام غبار المنشار والمطاط المطاطي الطبيعي
- ، مما يدل على أن جرعة البوليمر 5 ٪ تحسن بشكل كبير مقاومة التثبيت 
-والتكسير. </font></li>
-                                <li><span class="font-medium"><font style="vertical-align: inherit;">عباس (2023): </font></span><font style="vertical-align: inherit;">استكشاف جدوى الإسفلت الحراري للبنية التحتية للطرق المستدامة في العراق ، وتحليل التكيفات المحتملة للمناخ المتطرف في العراق. </font></li>
+                                <li><span class="font-medium">Darwesh et al. (2017):</span> Studied modification of Iraqi Asphalt 40/50 properties using saw dust and natural rubber latex, demonstrating that a 5% polymer dosage significantly improves rutting and cracking resistance.</li>
+                                <li><span class="font-medium">Abbas (2023):</span> Explored the feasibility of thermochromic asphalt for sustainable road infrastructure in Iraq, analyzing potential adaptations for Iraq's extreme climate.</li>
                                 <li><span class="font-medium">Iraqi Ministry of Construction and Housing (2021):</span> Technical report on pavement performance in extreme heat conditions documented premature failures and maintenance challenges.</li>
                             </ul>
                         </div>
@@ -1376,54 +1355,54 @@
                 <!-- Model Limitations -->
                 <div class="card mt-6">
                     <div class="card-header">
-                        <i class="fas fa-exclamation-triangle mr-2 text-yellow-600"></i><font style="vertical-align: inherit;">القيود والاعتبارات النموذجية
-                     </font></div>
+                        <i class="fas fa-exclamation-triangle mr-2 text-yellow-600"></i>Model Limitations & Considerations
+                    </div>
                     
                     <div class="mb-4">
-                        <p><font style="vertical-align: inherit;">
-                            بينما توفر أداة التحليل هذه رؤى قيمة لتنفيذ الإسفلت الحراري في العراق ، 
-                            يجب أن يكون المستخدمون على دراية بالقيود والاعتبارات التالية:
-                         </font></p>
+                        <p>
+                            While this analysis tool provides valuable insights for thermochromic asphalt implementation in Iraq, 
+                            users should be aware of the following limitations and considerations:
+                        </p>
                     </div>
                     
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold mb-2"><font style="vertical-align: inherit;">القيود الفنية: </font></h3>
+                        <h3 class="text-lg font-semibold mb-2">Technical Limitations:</h3>
                         <ul class="list-disc pl-5">
-                            <li><span class="font-medium"><font style="vertical-align: inherit;">نقل الحرارة المبسط: </font></span><font style="vertical-align: inherit;">يستخدم النموذج معادلات نقل الحرارة المبسطة التي قد لا تلتقط جميع تعقيدات السلوك الحراري في العالم الحقيقي. </font></li>
-                            <li><span class="font-medium"><font style="vertical-align: inherit;">خصائص المواد الموحدة: </font></span><font style="vertical-align: inherit;">يفترض توزيع موحد للأصباغ الحرارية في جميع أنحاء الإسفلت ، والتي قد تختلف في الممارسة العملية. </font></li>
-                            <li><span class="font-medium"><font style="vertical-align: inherit;">التدهور الخطي: </font></span><font style="vertical-align: inherit;">يستخدم نموذج التدهور علاقات تقريبية قد لا تلتقط عمليات شيخوخة المواد المعقدة بالكامل. </font></li>
-                            <li><span class="font-medium"><font style="vertical-align: inherit;">التحقق من صحة الميدان المحدودة: </font></span><font style="vertical-align: inherit;">على الرغم من وجود دراسات دولية ، توجد بيانات ميدانية محدودة خاصة بالعراق للتحقق من صحة النموذج. </font></li>
-                            <li><span class="font-medium"><font style="vertical-align: inherit;">تأثيرات حركة المرور: </font></span><font style="vertical-align: inherit;">العلاج المبسط للتدفئة الناجم عن حركة المرور والارتداء الميكانيكي على الأداء الحراري. </font></li>
+                            <li><span class="font-medium">Simplified Heat Transfer:</span> The model uses simplified heat transfer equations that may not capture all complexities of real-world thermal behavior.</li>
+                            <li><span class="font-medium">Uniform Material Properties:</span> Assumes uniform distribution of thermochromic pigments throughout the asphalt, which may vary in practice.</li>
+                            <li><span class="font-medium">Linear Degradation:</span> The degradation model uses approximate relationships that may not fully capture complex material aging processes.</li>
+                            <li><span class="font-medium">Limited Field Validation:</span> While based on international studies, limited Iraq-specific field data exists for model validation.</li>
+                            <li><span class="font-medium">Traffic Effects:</span> Simplified treatment of traffic-induced heating and mechanical wear on thermochromic performance.</li>
                         </ul>
                     </div>
                     
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold mb-2"><font style="vertical-align: inherit;">اعتبارات التنفيذ: </font></h3>
+                        <h3 class="text-lg font-semibold mb-2">Implementation Considerations:</h3>
                         <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-4">
                             <p class="text-yellow-800">
-                                <span class="font-medium"><font style="vertical-align: inherit;">توافر المواد: </font></span><font style="vertical-align: inherit;">قد تتطلب المواد الحرارية المصادر الدولية ، مما يضيف التعقيد اللوجستي والتأخيرات المحتملة.
-                             </font></p>
+                                <span class="font-medium">Material Availability:</span> Thermochromic materials may require international sourcing, adding logistical complexity and potential delays.
+                            </p>
                         </div>
                         <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-4">
                             <p class="text-yellow-800">
-                                <span class="font-medium"><font style="vertical-align: inherit;">الخبرة الفنية: </font></span><font style="vertical-align: inherit;">قد تتطلب المعرفة المتخصصة لمعالجة المواد المناسبة والخلط والتطبيق تدريبًا إضافيًا للمقاولين المحليين.
-                             </font></p>
+                                <span class="font-medium">Technical Expertise:</span> Specialized knowledge for proper material handling, mixing, and application may require additional training for local contractors.
+                            </p>
                         </div>
                         <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4">
                             <p class="text-yellow-800">
-                                <span class="font-medium"><font style="vertical-align: inherit;">تباين التكلفة: </font></span><font style="vertical-align: inherit;">قد تختلف تكاليف التنفيذ الفعلية بناءً على توفر المواد وواجبات الاستيراد والظروف الاقتصادية المحلية.
-                             </font></p>
+                                <span class="font-medium">Cost Variability:</span> Actual implementation costs may vary based on material availability, import duties, and local economic conditions.
+                            </p>
                         </div>
                     </div>
                     
                     <div>
-                        <h3 class="text-lg font-semibold mb-2"><font style="vertical-align: inherit;">تحسينات النموذج الموصى بها: </font></h3>
+                        <h3 class="text-lg font-semibold mb-2">Recommended Model Improvements:</h3>
                         <ul class="list-disc pl-5">
-                            <li><span class="font-medium"><font style="vertical-align: inherit;">التحقق من صحة الميدان: </font></span><font style="vertical-align: inherit;">إجراء اختبار موضعي لتحسين معلمات النموذج للظروف العراقية. </font></li>
-                            <li><span class="font-medium"><font style="vertical-align: inherit;">بيانات المناخ الموسعة: </font></span><font style="vertical-align: inherit;">دمج المزيد من بيانات المناخ الحبيبي بما في ذلك العواصف الرملية/الترابية الخاصة بالعراق. </font></li>
-                            <li><span class="font-medium"><font style="vertical-align: inherit;">تكامل حركة المرور: </font></span><font style="vertical-align: inherit;">تطوير نماذج أكثر تطوراً لتأثيرات حركة المرور على الأداء الحراري. </font></li>
-                            <li><span class="font-medium"><font style="vertical-align: inherit;">تحليل مصادر المواد: </font></span><font style="vertical-align: inherit;">أضف النمذجة اللوجستية وسلسلة التوريد لمشتريات المواد. </font></li>
-                            <li><span class="font-medium"><font style="vertical-align: inherit;">تحسين الصيانة: </font></span><font style="vertical-align: inherit;">قم بتطوير نماذج تنبؤ مفصلة للصيانة على أساس الظروف المحلية. </font></li>
+                            <li><span class="font-medium">Field Validation:</span> Conduct localized testing to refine model parameters for Iraqi conditions.</li>
+                            <li><span class="font-medium">Expanded Climate Data:</span> Incorporate more granular climate data including sand/dust storms specific to Iraq.</li>
+                            <li><span class="font-medium">Traffic Integration:</span> Develop more sophisticated models for traffic effects on thermochromic performance.</li>
+                            <li><span class="font-medium">Material Sourcing Analysis:</span> Add logistics and supply chain modeling for material procurement.</li>
+                            <li><span class="font-medium">Maintenance Optimization:</span> Develop detailed maintenance prediction models based on local conditions.</li>
                         </ul>
                     </div>
                 </div>
@@ -1433,8 +1412,8 @@
 
     <!-- Footer -->
     <footer class="text-center text-gray-500 mt-12 pt-6 border-t border-gray-200">
-        <p><font style="vertical-align: inherit;">أداة تحليل أداء الإسفلت الحرارية للعراق </font></p>
-        <p class="text-sm mt-1"><font style="vertical-align: inherit;">تم تطويره على أساس مبادئ البحث والهندسة الشاملة </font></p>
+        <p>Thermochromic Asphalt Performance Analysis Tool for Iraq</p>
+        <p class="text-sm mt-1">Developed based on comprehensive research and engineering principles</p>
     </footer>
 
     <!-- JavaScript -->
@@ -2032,5 +2011,5 @@
             window.degChart.update();
         }
     </script>
-
-</body></html>
+</body>
+</html>

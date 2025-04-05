@@ -3,65 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thermochromic Asphalt Performance Model for Iraqi Climate</title>
-    <!-- استخدام Tailwind CSS من ملف محلي (يجب أن يكون مرفوعًا في نفس المجلد) -->
-    <link href="./tailwind.min.css" rel="stylesheet">
-    <!-- استخدام Chart.js من ملف محلي (يجب أن يكون مرفوعًا في نفس المجلد) -->
-    <script src="./chart.min.js"></script>
+    <title>Thermochromic Asphalt Performance Analysis Tool for Iraq</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
         }
-        .excel-cell {
-            border: 1px solid #e2e8f0;
-            padding: 8px;
-            background-color: white;
-        }
-        .header-cell {
-            background-color: #f8fafc;
-            font-weight: bold;
-            border: 1px solid #e2e8f0;
-            padding: 8px;
-        }
-        .formula-cell {
-            background-color: #f0f9ff;
-            border: 1px solid #e2e8f0;
-            padding: 8px;
-        }
-        .result-cell {
-            background-color: #f0fff4;
-            border: 1px solid #e2e8f0;
-            padding: 8px;
-            font-weight: bold;
-        }
-        .negative-impact {
-            color: #e53e3e;
-        }
-        .positive-impact {
-            color: #38a169;
-        }
-        input, select {
-            width: 100%;
-            border: none;
-            background: transparent;
-            padding: 4px;
-            outline: none;
-        }
-        input:focus {
-            outline: 2px solid #3b82f6;
-        }
-        .tab {
-            border-top: 1px solid #e2e8f0;
-            border-left: 1px solid #e2e8f0;
-            border-right: 1px solid #e2e8f0;
-            padding: 8px 16px;
-            background-color: white;
-            cursor: pointer;
-        }
-        .tab.active {
-            font-weight: bold;
-            border-bottom: 2px solid #3b82f6;
+        .input-field {
+            @apply border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500;
         }
         .tab-content {
             display: none;
@@ -69,61 +22,2130 @@
         .tab-content.active {
             display: block;
         }
-        .chart-container {
-            height: 300px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            background-color: white;
+        .btn {
+            @apply px-4 py-2 rounded font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+        }
+        .btn-primary {
+            @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+        }
+        .btn-secondary {
+            @apply bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500;
+        }
+        .btn-success {
+            @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
+        }
+        .card {
+            @apply bg-white rounded-lg shadow-md p-6 mb-6;
+        }
+        .card-header {
+            @apply text-xl font-semibold mb-4 pb-2 border-b border-gray-200;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
             border: 1px solid #e2e8f0;
-            padding: 16px;
+        }
+        th {
+            background-color: #f8fafc;
+            font-weight: 600;
+        }
+        .progress-bar {
+            height: 10px;
+            background-color: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress-value {
+            height: 100%;
+            background-color: #3b82f6;
+            transition: width 0.5s;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                background-color: white;
+            }
+            .card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #e2e8f0;
+            }
         }
     </style>
 </head>
-<body class="p-8">
-    <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-        <div class="bg-blue-600 text-white p-4">
-            <h1 class="text-2xl font-bold">Thermochromic Asphalt Performance Model for Iraqi Climate</h1>
-            <p class="mt-1">Mathematical model for estimating performance under various regional conditions</p>
+<body class="p-4 md:p-8">
+    <!-- Header -->
+    <header class="text-center mb-8">
+        <div class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white py-6 px-4 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold mb-2">Thermochromic Asphalt Performance Analysis Tool</h1>
+            <p class="text-xl">Advanced Modeling for Sustainable Road Infrastructure in Iraq</p>
         </div>
-       
-        <!-- تبويبات التنقل -->
-        <div class="flex border-b border-gray-200">
-            <div class="tab active" onclick="showTab('input')">Input Parameters</div>
-            <div class="tab" onclick="showTab('calculations')">Calculations</div>
-            <div class="tab" onclick="showTab('results')">Performance Results</div>
-            <div class="tab" onclick="showTab('charts')">Visualization</div>
-        </div>
-       
-        <!-- تبويب إدخال المعلمات -->
-        <div id="input" class="tab-content active p-6">
-            <h2 class="text-xl font-bold mb-4">Regional Parameters Input</h2>
-           
-            <div class="mb-4">
-                <label class="block mb-2 font-bold">Preset Region Selection</label>
-                <select id="regionSelect" class="w-full p-2 border rounded" onchange="loadRegionData()">
-                    <option value="custom">Custom Values</option>
-                    <option value="baghdad">Baghdad (Central)</option>
-                    <option value="basra">Basra (Southern)</option>
-                    <option value="mosul">Mosul (Northern)</option>
-                    <option value="erbil">Erbil (Northern)</option>
-                    <option value="najaf">Najaf (Central)</option>
-                </select>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto">
+        <!-- Introduction Section -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-info-circle mr-2 text-blue-600"></i>About This Tool
             </div>
-           
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-bold mb-2">Climate Parameters</h3>
-                    <table class="w-full">
-                        <tr>
-                            <td class="header-cell">Base Temperature (°C)</td>
-                            <td class="excel-cell"><input type="number" id="baseTemp" value="25" step="0.1"></td>
-                        </tr>
-                        <tr>
-                            <td class="header-cell">Temperature Amplitude (°C)</td>
-                            <td class="excel-cell"><input type="number" id="tempAmplitude" value="15" step="0.1"></td>
-                        </tr>
-                        <tr>
-                            <td class="header-cell">Max Solar Radiation (W/m²)</td>
-                            <td class="excel-cell"><input type="number" id="maxSolarRad" value="900" step="10"></td>
-                        </tr>
-   
+            <p class="mb-4">
+                This comprehensive analysis tool helps engineers and planners evaluate the performance of thermochromic asphalt 
+                across Iraq's diverse climate conditions. By entering regional climate data and material specifications, 
+                you can predict thermal regulation efficiency, durability, cost-effectiveness, and environmental impact.
+            </p>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
+                <p class="font-medium text-blue-700">Key Benefits of Thermochromic Asphalt:</p>
+                <ul class="list-disc pl-5 mt-2 text-blue-900">
+                    <li>Reduces surface temperature by 4-6°C during peak summer months</li>
+                    <li>Extends pavement lifespan by 25-30% through reduced thermal stress</li>
+                    <li>Decreases urban heat island effect in densely populated areas</li>
+                    <li>Lowers maintenance requirements and lifecycle costs</li>
+                    <li>Improves road safety during extreme temperature conditions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tabbed Interface -->
+        <div class="mb-8">
+            <div class="flex border-b border-gray-200 no-print">
+                <button id="tab-input" class="px-4 py-2 text-blue-600 border-b-2 border-blue-600 font-medium">Input Parameters</button>
+                <button id="tab-results" class="px-4 py-2 text-gray-500 font-medium">Results Dashboard</button>
+                <button id="tab-implementation" class="px-4 py-2 text-gray-500 font-medium">Implementation Guide</button>
+                <button id="tab-documentation" class="px-4 py-2 text-gray-500 font-medium">Technical Documentation</button>
+            </div>
+
+            <!-- Input Parameters Tab -->
+            <div id="content-input" class="tab-content active mt-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Location Selection -->
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>Location Parameters
+                        </div>
+                        <div class="mb-4">
+                            <label class="block mb-2 font-medium">Select Governorate:</label>
+                            <select id="governorate" class="input-field">
+                                <option value="custom">Custom Location</option>
+                                <option value="baghdad" selected>Baghdad</option>
+                                <option value="basra">Basra</option>
+                                <option value="mosul">Mosul</option>
+                                <option value="erbil">Erbil</option>
+                                <option value="najaf">Najaf</option>
+                                <option value="kirkuk">Kirkuk</option>
+                                <option value="diyala">Diyala</option>
+                                <option value="anbar">Anbar</option>
+                                <option value="babylon">Babylon</option>
+                                <option value="karbala">Karbala</option>
+                                <option value="wasit">Wasit</option>
+                                <option value="dhi-qar">Dhi Qar</option>
+                                <option value="maysan">Maysan</option>
+                                <option value="muthanna">Muthanna</option>
+                                <option value="duhok">Duhok</option>
+                                <option value="sulaymaniyah">Sulaymaniyah</option>
+                                <option value="saladin">Saladin</option>
+                            </select>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Maximum Temperature (°C):
+                                    <div class="tooltip inline-block">
+                                        <i class="fas fa-question-circle text-gray-400"></i>
+                                        <span class="tooltip-text">Highest recorded summer temperature</span>
+                                    </div>
+                                </label>
+                                <input type="number" id="max-temp" class="input-field" value="50">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Minimum Temperature (°C):
+                                    <div class="tooltip inline-block">
+                                        <i class="fas fa-question-circle text-gray-400"></i>
+                                        <span class="tooltip-text">Lowest recorded winter temperature</span>
+                                    </div>
+                                </label>
+                                <input type="number" id="min-temp" class="input-field" value="5">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Average Temperature (°C):
+                                </label>
+                                <input type="number" id="avg-temp" class="input-field" value="25">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Solar Radiation (W/m²):
+                                </label>
+                                <input type="number" id="solar-radiation" class="input-field" value="900">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Relative Humidity (%):
+                                </label>
+                                <input type="number" id="humidity" class="input-field" value="30">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Annual Thermal Cycles:
+                                    <div class="tooltip inline-block">
+                                        <i class="fas fa-question-circle text-gray-400"></i>
+                                        <span class="tooltip-text">Number of significant temperature fluctuations per year</span>
+                                    </div>
+                                </label>
+                                <input type="number" id="thermal-cycles" class="input-field" value="365">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    UV Intensity Factor:
+                                    <div class="tooltip inline-block">
+                                        <i class="fas fa-question-circle text-gray-400"></i>
+                                        <span class="tooltip-text">Relative UV intensity (0.5-1.5 scale)</span>
+                                    </div>
+                                </label>
+                                <input type="number" id="uv-factor" class="input-field" min="0.5" max="1.5" step="0.1" value="1.0">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Freeze-Thaw Cycles:
+                                </label>
+                                <input type="number" id="freeze-thaw" class="input-field" value="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Material Properties -->
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-flask mr-2 text-blue-600"></i>Thermochromic Material Properties
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Pigment Concentration (%):
+                                    <div class="tooltip inline-block">
+                                        <i class="fas fa-question-circle text-gray-400"></i>
+                                        <span class="tooltip-text">Typical values range from 2-6%</span>
+                                    </div>
+                                </label>
+                                <input type="number" id="pigment-concentration" class="input-field" min="1" max="10" step="0.5" value="4">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Transition Temperature (°C):
+                                </label>
+                                <input type="number" id="transition-temp" class="input-field" value="35">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Min Absorptivity:
+                                    <div class="tooltip inline-block">
+                                        <i class="fas fa-question-circle text-gray-400"></i>
+                                        <span class="tooltip-text">Minimum solar absorptivity (high temperature state)</span>
+                                    </div>
+                                </label>
+                                <input type="number" id="min-absorptivity" class="input-field" min="0.1" max="0.5" step="0.01" value="0.35">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Max Absorptivity:
+                                    <div class="tooltip inline-block">
+                                        <i class="fas fa-question-circle text-gray-400"></i>
+                                        <span class="tooltip-text">Maximum solar absorptivity (low temperature state)</span>
+                                    </div>
+                                </label>
+                                <input type="number" id="max-absorptivity" class="input-field" min="0.6" max="0.95" step="0.01" value="0.85">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Material Type:
+                                </label>
+                                <select id="material-type" class="input-field">
+                                    <option value="standard">Standard Thermochromic</option>
+                                    <option value="uv-resistant">UV-Resistant Enhanced</option>
+                                    <option value="humidity-resistant">Humidity-Resistant</option>
+                                    <option value="premium">Premium (UV+Humidity Resistant)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Base Asphalt Type:
+                                </label>
+                                <select id="base-asphalt" class="input-field">
+                                    <option value="conventional">Conventional Asphalt</option>
+                                    <option value="polymer" selected>Polymer-Modified</option>
+                                    <option value="high-stability">High Stability Mix</option>
+                                    <option value="local-bitumen">Iraqi High-Sulfur Bitumen</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Protective Coating:
+                                </label>
+                                <select id="protective-coating" class="input-field">
+                                    <option value="none">None</option>
+                                    <option value="standard">Standard Sealer</option>
+                                    <option value="hydrophobic" selected>Hydrophobic Coating</option>
+                                    <option value="high-durability">High Durability Sealer</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Application Method:
+                                </label>
+                                <select id="application-method" class="input-field">
+                                    <option value="mix-in">Mixed in Asphalt</option>
+                                    <option value="surface-layer" selected>Surface Layer Only</option>
+                                    <option value="multi-layer">Multi-Layer System</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Parameters -->
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-project-diagram mr-2 text-blue-600"></i>Project Parameters
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Service Life (years):
+                                </label>
+                                <input type="number" id="service-life" class="input-field" min="1" max="30" value="15">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Road Type:
+                                </label>
+                                <select id="road-type" class="input-field">
+                                    <option value="urban">Urban Road</option>
+                                    <option value="highway" selected>Highway</option>
+                                    <option value="local">Local Road</option>
+                                    <option value="bridge">Bridge Pavement</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Traffic Level:
+                                </label>
+                                <select id="traffic-level" class="input-field">
+                                    <option value="low">Low Traffic</option>
+                                    <option value="medium">Medium Traffic</option>
+                                    <option value="high" selected>High Traffic</option>
+                                    <option value="very-high">Very High Traffic</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Initial Cost Premium (%):
+                                    <div class="tooltip inline-block">
+                                        <i class="fas fa-question-circle text-gray-400"></i>
+                                        <span class="tooltip-text">Additional cost compared to conventional asphalt</span>
+                                    </div>
+                                </label>
+                                <input type="number" id="cost-premium" class="input-field" min="5" max="50" value="15">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Maintenance Interval:
+                                </label>
+                                <select id="maintenance-interval" class="input-field">
+                                    <option value="standard">Standard (3-5 years)</option>
+                                    <option value="extended" selected>Extended (5-7 years)</option>
+                                    <option value="minimal">Minimal (7-10 years)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Implementation Priority:
+                                </label>
+                                <select id="implementation-priority" class="input-field">
+                                    <option value="performance">Maximum Performance</option>
+                                    <option value="cost" selected>Cost Effectiveness</option>
+                                    <option value="durability">Maximum Durability</option>
+                                    <option value="balanced">Balanced Approach</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Traffic and Environmental Factors -->
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-car mr-2 text-blue-600"></i>Traffic & Environmental Factors
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Average Daily Traffic:
+                                </label>
+                                <input type="number" id="daily-traffic" class="input-field" value="20000">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Heavy Vehicle Percentage:
+                                </label>
+                                <input type="number" id="heavy-vehicles" class="input-field" min="0" max="100" value="15">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Dust Exposure Level:
+                                    <div class="tooltip inline-block">
+                                        <i class="fas fa-question-circle text-gray-400"></i>
+                                        <span class="tooltip-text">Impacts reflectivity and thermal properties</span>
+                                    </div>
+                                </label>
+                                <select id="dust-exposure" class="input-field">
+                                    <option value="low">Low (Urban Center)</option>
+                                    <option value="medium" selected>Medium (Typical)</option>
+                                    <option value="high">High (Desert Adjacent)</option>
+                                    <option value="severe">Severe (Sand Storm Zone)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Salinity Exposure:
+                                </label>
+                                <select id="salinity" class="input-field">
+                                    <option value="none" selected>None/Minimal</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High (Coastal/Salt Flats)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Urban Heat Island Effect:
+                                </label>
+                                <select id="uhi-effect" class="input-field">
+                                    <option value="minimal">Minimal (Rural)</option>
+                                    <option value="moderate">Moderate (Suburban)</option>
+                                    <option value="significant" selected>Significant (Urban)</option>
+                                    <option value="severe">Severe (Dense Urban)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">
+                                    Surrounding Land Use:
+                                </label>
+                                <select id="land-use" class="input-field">
+                                    <option value="urban">Urban (Buildings)</option>
+                                    <option value="suburban" selected>Mixed Use</option>
+                                    <option value="industrial">Industrial</option>
+                                    <option value="desert">Desert/Open</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button id="calculate-btn" class="btn btn-primary px-8 py-3">
+                        <i class="fas fa-calculator mr-2"></i>Calculate Performance
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Dashboard Tab -->
+            <div id="content-results" class="tab-content mt-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <!-- Performance Score Card -->
+                    <div class="card bg-gradient-to-br from-blue-50 to-indigo-50">
+                        <div class="text-center">
+                            <h3 class="text-xl font-bold text-blue-800 mb-2">Overall Performance Score</h3>
+                            <div class="text-6xl font-bold text-blue-600 mb-2" id="overall-score">87</div>
+                            <div class="text-sm text-blue-700" id="performance-category">Excellent</div>
+                            <div class="w-full bg-gray-200 rounded-full h-4 mt-4">
+                                <div class="bg-blue-600 h-4 rounded-full" id="score-bar" style="width: 87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Temperature Reduction Card -->
+                    <div class="card bg-gradient-to-br from-green-50 to-teal-50">
+                        <div class="text-center">
+                            <h3 class="text-xl font-bold text-green-800 mb-2">Surface Temperature Reduction</h3>
+                            <div class="flex justify-center items-end">
+                                <div class="text-6xl font-bold text-green-600" id="temp-reduction">5.2</div>
+                                <div class="text-2xl font-bold text-green-600 mb-2">°C</div>
+                            </div>
+                            <div class="text-sm text-green-700">During peak summer conditions</div>
+                            <div class="mt-4 text-sm">
+                                <span class="font-medium">Conventional surface:</span> <span id="conv-temp">56.8°C</span>
+                            </div>
+                            <div class="text-sm">
+                                <span class="font-medium">Thermochromic surface:</span> <span id="thermo-temp">51.6°C</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Lifespan Extension Card -->
+                    <div class="card bg-gradient-to-br from-purple-50 to-pink-50">
+                        <div class="text-center">
+                            <h3 class="text-xl font-bold text-purple-800 mb-2">Service Life Extension</h3>
+                            <div class="flex justify-center items-end">
+                                <div class="text-6xl font-bold text-purple-600" id="life-extension">28</div>
+                                <div class="text-2xl font-bold text-purple-600 mb-2">%</div>
+                            </div>
+                            <div class="text-sm text-purple-700">Compared to conventional asphalt</div>
+                            <div class="mt-4 text-sm">
+                                <span class="font-medium">Conventional lifespan:</span> <span id="conv-life">12 years</span>
+                            </div>
+                            <div class="text-sm">
+                                <span class="font-medium">Projected lifespan:</span> <span id="thermo-life">15.4 years</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Performance Metrics Table -->
+                <div class="card">
+                    <div class="card-header flex justify-between items-center">
+                        <div><i class="fas fa-chart-line mr-2 text-blue-600"></i>Performance Metrics</div>
+                        <div>
+                            <span class="text-sm text-gray-600">Location: </span>
+                            <span id="result-location" class="font-medium">Baghdad, Iraq</span>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="mb-4">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th>Performance Metric</th>
+                                    <th>Value</th>
+                                    <th>Rating</th>
+                                    <th>Comparison to Conventional</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Thermal Efficiency</td>
+                                    <td id="thermal-efficiency">78%</td>
+                                    <td>
+                                        <div class="flex items-center">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
+                                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 78%"></div>
+                                            </div>
+                                            <span>Good</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-green-600">+78% improvement</td>
+                                </tr>
+                                <tr>
+                                    <td>Durability Index</td>
+                                    <td id="durability-index">82/100</td>
+                                    <td>
+                                        <div class="flex items-center">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
+                                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 82%"></div>
+                                            </div>
+                                            <span>Excellent</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-green-600">+23% improvement</td>
+                                </tr>
+                                <tr>
+                                    <td>UV Resistance</td>
+                                    <td id="uv-resistance">Good</td>
+                                    <td>
+                                        <div class="flex items-center">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
+                                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75%"></div>
+                                            </div>
+                                            <span>Good</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-green-600">+15% improvement</td>
+                                </tr>
+                                <tr>
+                                    <td>Rutting Resistance</td>
+                                    <td id="rutting-resistance">Very Good</td>
+                                    <td>
+                                        <div class="flex items-center">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
+                                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+                                            </div>
+                                            <span>Very Good</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-green-600">+25% improvement</td>
+                                </tr>
+                                <tr>
+                                    <td>Cracking Resistance</td>
+                                    <td id="cracking-resistance">Excellent</td>
+                                    <td>
+                                        <div class="flex items-center">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
+                                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+                                            </div>
+                                            <span>Excellent</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-green-600">+32% improvement</td>
+                                </tr>
+                                <tr>
+                                    <td>Cost Efficiency</td>
+                                    <td id="cost-efficiency">Good</td>
+                                    <td>
+                                        <div class="flex items-center">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
+                                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 78%"></div>
+                                            </div>
+                                            <span>Good</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-green-600">22% ROI over lifecycle</td>
+                                </tr>
+                                <tr>
+                                    <td>Environmental Impact</td>
+                                    <td id="environmental-impact">Very Good</td>
+                                    <td>
+                                        <div class="flex items-center">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
+                                                <div class="bg-green-600 h-2.5 rounded-full" style="width: 85%"></div>
+                                            </div>
+                                            <span>Very Good</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-green-600">18% CO₂ reduction</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Visualizations -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <!-- Temperature Performance Graph -->
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-temperature-high mr-2 text-blue-600"></i>Temperature Performance
+                        </div>
+                        <div class="h-64">
+                            <canvas id="temperature-chart"></canvas>
+                        </div>
+                        <div class="text-sm text-gray-600 mt-2">
+                            Surface temperature comparison between conventional and thermochromic asphalt during a typical summer day
+                        </div>
+                    </div>
+                    
+                    <!-- Lifecycle Cost Analysis -->
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-coins mr-2 text-blue-600"></i>Lifecycle Cost Analysis
+                        </div>
+                        <div class="h-64">
+                            <canvas id="cost-chart"></canvas>
+                        </div>
+                        <div class="text-sm text-gray-600 mt-2">
+                            Cumulative costs over 20 years including initial construction and maintenance expenses
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Material Performance Over Time -->
+                <div class="card mt-6">
+                    <div class="card-header">
+                        <i class="fas fa-hourglass-half mr-2 text-blue-600"></i>Performance Degradation Over Time
+                    </div>
+                    <div class="h-64">
+                        <canvas id="degradation-chart"></canvas>
+                    </div>
+                    <div class="text-sm text-gray-600 mt-2">
+                        Projected performance metrics over the service life, showing how UV exposure, traffic, and environmental factors affect thermochromic efficiency
+                    </div>
+                </div>
+                
+                <!-- Recommendations Section -->
+                <div class="card mt-6 bg-gradient-to-r from-blue-50 to-indigo-50">
+                    <div class="card-header border-b border-blue-200">
+                        <i class="fas fa-lightbulb mr-2 text-blue-600"></i>Recommendations
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">Key Findings:</h4>
+                        <ul class="list-disc pl-5 text-blue-900">
+                            <li id="recommendation-1">Thermochromic asphalt with 4% pigment concentration would provide optimal performance for Baghdad's climate conditions.</li>
+                            <li id="recommendation-2">The addition of a hydrophobic protective coating is strongly recommended due to high UV exposure in this region.</li>
+                            <li id="recommendation-3">Expected temperature reduction of 5.2°C will significantly extend pavement life and reduce maintenance frequency.</li>
+                            <li id="recommendation-4">The 15% initial cost premium is economically justified with a 22% return on investment over the lifecycle.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-blue-800 mb-2">Implementation Considerations:</h4>
+                        <ul class="list-disc pl-5 text-blue-900">
+                            <li id="implementation-1">Schedule construction during moderate temperature seasons (spring/fall) for optimal thermochromic integration.</li>
+                            <li id="implementation-2">Consider pilot implementation on high-traffic urban corridors where thermal stress and heat island effects are most pronounced.</li>
+                            <li id="implementation-3">Implement a maintenance protocol specifically designed for thermochromic surfaces to maintain optimal performance.</li>
+                            <li id="implementation-4">Monitor performance seasonally during the first two years to establish baseline degradation rates in local conditions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Implementation Guide Tab -->
+            <div id="content-implementation" class="tab-content mt-6">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-road mr-2 text-blue-600"></i>Step-by-Step Implementation Guide
+                    </div>
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">1. Project Planning & Feasibility</h3>
+                        <div class="pl-6">
+                            <p class="mb-2"><span class="font-semibold">1.1 Site Assessment:</span> Conduct a detailed climate analysis of the project location, including temperature profiles, solar radiation, and humidity patterns.</p>
+                            <p class="mb-2"><span class="font-semibold">1.2 Traffic Analysis:</span> Evaluate traffic volume, composition, and patterns to determine mechanical stress requirements.</p>
+                            <p class="mb-2"><span class="font-semibold">1.3 Economic Analysis:</span> Perform a lifecycle cost analysis comparing conventional asphalt with thermochromic alternatives.</p>
+                            <p class="mb-2"><span class="font-semibold">1.4 Material Selection:</span> Based on the specific regional challenges, select the appropriate thermochromic formulation and protective systems.</p>
+                            
+                            <div class="bg-blue-50 border-l-4 border-blue-500 p-3 mt-2 mb-4">
+                                <p class="text-sm text-blue-800">
+                                    <span class="font-semibold">Regional Consideration:</span> For southern Iraq (Basra, Dhi Qar), prioritize UV-resistant formulations. For northern regions (Mosul, Erbil), consider freeze-thaw resistant formulations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">2. Material Procurement & Testing</h3>
+                        <div class="pl-6">
+                            <p class="mb-2"><span class="font-semibold">2.1 Supplier Selection:</span> Work with reputable suppliers who can provide certified thermochromic materials and technical support.</p>
+                            <p class="mb-2"><span class="font-semibold">2.2 Material Testing:</span> Conduct laboratory testing of mixed samples to verify thermal properties and mechanical performance.</p>
+                            <p class="mb-2"><span class="font-semibold">2.3 Mix Design:</span> Develop an optimized mix design integrating thermochromic materials with local aggregates and binders.</p>
+                            <p class="mb-2"><span class="font-semibold">2.4 Quality Control Plan:</span> Establish quality control procedures for material handling, mixing, and application.</p>
+                            
+                            <table class="w-full border text-sm mt-3 mb-4">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="p-2 border">Material Source</th>
+                                        <th class="p-2 border">Advantages</th>
+                                        <th class="p-2 border">Challenges</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-2 border">European Suppliers</td>
+                                        <td class="p-2 border">High quality, extensive technical support</td>
+                                        <td class="p-2 border">Higher cost, longer delivery times</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border">Asian Suppliers</td>
+                                        <td class="p-2 border">Cost-effective, faster delivery</td>
+                                        <td class="p-2 border">Variable quality, less technical support</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border">Regional Partnerships</td>
+                                        <td class="p-2 border">Faster delivery, potential cost savings</td>
+                                        <td class="p-2 border">Limited product range</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">3. Construction & Application</h3>
+                        <div class="pl-6">
+                            <p class="mb-2"><span class="font-semibold">3.1 Scheduling:</span> Plan construction during moderate temperature seasons (spring/fall) for optimal material performance.</p>
+                            <p class="mb-2"><span class="font-semibold">3.2 Equipment Setup:</span> Ensure mixing and paving equipment is properly calibrated for thermochromic materials.</p>
+                            <p class="mb-2"><span class="font-semibold">3.3 Temperature Control:</span> Maintain strict temperature controls during mixing and application.</p>
+                            <p class="mb-2"><span class="font-semibold">3.4 Application Method:</span> Follow specified application techniques based on selected thermochromic system (mix-in vs. surface layer).</p>
+                            
+                            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-3 mt-2 mb-4">
+                                <p class="text-sm text-yellow-800">
+                                    <span class="font-semibold">Critical Warning:</span> Thermochromic pigments may degrade if mixed at excessive temperatures (>180°C). Carefully monitor mixing temperatures and duration to preserve thermal properties.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">4. Quality Assurance & Verification</h3>
+                        <div class="pl-6">
+                            <p class="mb-2"><span class="font-semibold">4.1 Field Testing:</span> Conduct in-situ testing of thermal properties post-installation.</p>
+                            <p class="mb-2"><span class="font-semibold">4.2 Performance Verification:</span> Monitor temperature differentials between conventional and thermochromic sections.</p>
+                            <p class="mb-2"><span class="font-semibold">4.3 Documentation:</span> Maintain comprehensive records of installation procedures, material properties, and initial performance metrics.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3 mb-4">
+                                <div class="border rounded p-3 bg-gray-50">
+                                    <h4 class="font-semibold mb-2">Recommended Testing Equipment</h4>
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Infrared thermal imaging camera</li>
+                                        <li>Surface temperature probes</li>
+                                        <li>UV aging chamber (laboratory)</li>
+                                        <li>Spectrophotometer for reflectivity measurements</li>
+                                        <li>Weather monitoring station</li>
+                                    </ul>
+                                </div>
+                                <div class="border rounded p-3 bg-gray-50">
+                                    <h4 class="font-semibold mb-2">Key Performance Indicators</h4>
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Peak temperature differential (°C)</li>
+                                        <li>Color transition response time</li>
+                                        <li>Surface reflectivity at various temperatures</li>
+                                        <li>Mechanical properties (rutting, tensile strength)</li>
+                                        <li>Visual appearance uniformity</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">5. Maintenance Protocol</h3>
+                        <div class="pl-6">
+                            <p class="mb-2"><span class="font-semibold">5.1 Routine Monitoring:</span> Establish a schedule for periodic thermal performance assessment.</p>
+                            <p class="mb-2"><span class="font-semibold">5.2 Cleaning Procedures:</span> Develop specific cleaning protocols to maintain surface reflectivity.</p>
+                            <p class="mb-2"><span class="font-semibold">5.3 Reapplication Strategy:</span> Determine optimal timing and procedures for protective coating renewal.</p>
+                            <p class="mb-2"><span class="font-semibold">5.4 Performance Documentation:</span> Maintain a database of performance metrics over time to inform future projects.</p>
+                            
+                            <table class="w-full border text-sm mt-3 mb-4">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="p-2 border">Maintenance Activity</th>
+                                        <th class="p-2 border">Frequency</th>
+                                        <th class="p-2 border">Purpose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-2 border">Surface Cleaning</td>
+                                        <td class="p-2 border">Quarterly</td>
+                                        <td class="p-2 border">Remove dust/debris that reduces reflectivity</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border">Thermal Imaging Assessment</td>
+                                        <td class="p-2 border">Annually</td>
+                                        <td class="p-2 border">Verify thermal regulation performance</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border">Protective Coating Renewal</td>
+                                        <td class="p-2 border">Every 3-5 years</td>
+                                        <td class="p-2 border">Maintain UV and moisture protection</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border">Crack Sealing</td>
+                                        <td class="p-2 border">As needed</td>
+                                        <td class="p-2 border">Prevent water infiltration</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">6. Knowledge Transfer & Capacity Building</h3>
+                        <div class="pl-6">
+                            <p class="mb-2"><span class="font-semibold">6.1 Training Programs:</span> Develop training materials for engineers and maintenance personnel.</p>
+                            <p class="mb-2"><span class="font-semibold">6.2 Documentation:</span> Create comprehensive implementation guidelines based on local experience.</p>
+                            <p class="mb-2"><span class="font-semibold">6.3 Research Partnership:</span> Establish collaboration with local universities to study long-term performance.</p>
+                            <p class="mb-2"><span class="font-semibold">6.4 Standards Development:</span> Work with regulatory bodies to develop standards for thermochromic asphalt in Iraq.</p>
+                            
+                            <div class="bg-green-50 border-l-4 border-green-500 p-3 mt-2">
+                                <p class="text-sm text-green-800">
+                                    <span class="font-semibold">Sustainability Impact:</span> Document and quantify environmental benefits including urban heat island reduction, energy savings in adjacent buildings, and reduced maintenance frequency to build support for wider adoption.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regional Considerations -->
+                <div class="card mt-6">
+                    <div class="card-header">
+                        <i class="fas fa-map mr-2 text-blue-600"></i>Regional Implementation Considerations
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="p-3 border">Region</th>
+                                    <th class="p-3 border">Key Challenges</th>
+                                    <th class="p-3 border">Recommended Formulation</th>
+                                    <th class="p-3 border">Implementation Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-3 border font-medium">Baghdad & Central Iraq</td>
+                                    <td class="p-3 border">
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Extreme summer heat (45-50°C)</li>
+                                            <li>Significant urban heat island effect</li>
+                                            <li>High traffic volumes</li>
+                                        </ul>
+                                    </td>
+                                    <td class="p-3 border">
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>4-5% thermochromic pigment</li>
+                                            <li>Polymer-modified base asphalt</li>
+                                            <li>Hydrophobic protective coating</li>
+                                        </ul>
+                                    </td>
+                                    <td class="p-3 border">
+                                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">High Priority</span>
+                                        <p class="text-sm mt-1">Major urban centers with significant heat island effect will benefit most</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border font-medium">Basra & Southern Iraq</td>
+                                    <td class="p-3 border">
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Extreme heat with high humidity</li>
+                                            <li>Intense UV radiation</li>
+                                            <li>Coastal salinity exposure</li>
+                                        </ul>
+                                    </td>
+                                    <td class="p-3 border">
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>UV-resistant thermochromic formulation</li>
+                                            <li>Higher pigment concentration (5-6%)</li>
+                                            <li>Premium protective coating system</li>
+                                        </ul>
+                                    </td>
+                                    <td class="p-3 border">
+                                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">High Priority</span>
+                                        <p class="text-sm mt-1">Severe thermal stresses make this region ideal for implementation</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border font-medium">Mosul & Northern Iraq</td>
+                                    <td class="p-3 border">
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Wide temperature fluctuations</li>
+                                            <li>Freeze-thaw cycles in winter</li>
+                                            <li>Moderate UV exposure</li>
+                                        </ul>
+                                    </td>
+                                    <td class="p-3 border">
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Broad-spectrum thermochromic pigment</li>
+                                            <li>Enhanced low-temperature performance</li>
+                                            <li>Standard protective coating</li>
+                                        </ul>
+                                    </td>
+                                    <td class="p-3 border">
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Medium Priority</span>
+                                        <p class="text-sm mt-1">Benefits for both summer cooling and winter performance</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border font-medium">Western Desert Regions</td>
+                                    <td class="p-3 border">
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Extreme temperature swings</li>
+                                            <li>Heavy dust exposure</li>
+                                            <li>Low humidity</li>
+                                        </ul>
+                                    </td>
+                                    <td class="p-3 border">
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Dust-resistant formulation</li>
+                                            <li>Self-cleaning coating system</li>
+                                            <li>Enhanced mechanical stability</li>
+                                        </ul>
+                                    </td>
+                                    <td class="p-3 border">
+                                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Specialized Application</span>
+                                        <p class="text-sm mt-1">Consider for strategic highway corridors</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border font-medium">Kurdish Region</td>
+                                    <td class="p-3 border">
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Mountain climate variability</li>
+                                            <li>Winter snow and freezing</li>
+                                            <li>Moderate summer heat</li>
+                                        </ul>
+                                    </td>
+                                    <td class="p-3 border">
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Multi-seasonal formulation</li>
+                                            <li>Enhanced freeze-thaw resistance</li>
+                                            <li>Moderate thermochromic content (3-4%)</li>
+                                        </ul>
+                                    </td>
+                                    <td class="p-3 border">
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Medium Priority</span>
+                                        <p class="text-sm mt-1">Focus on major urban centers first</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Pilot Project Framework -->
+                <div class="card mt-6">
+                    <div class="card-header">
+                        <i class="fas fa-clipboard-check mr-2 text-blue-600"></i>Pilot Project Framework
+                    </div>
+                    
+                    <p class="mb-4">
+                        Before full-scale implementation, a structured pilot project approach is recommended to validate performance under local conditions and build technical expertise.
+                    </p>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">Recommended Pilot Approach:</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div class="border rounded-lg p-4 bg-blue-50">
+                                <h4 class="font-semibold text-blue-800 mb-2">Phase 1: Small-Scale Testing</h4>
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>100-200 meter test sections</li>
+                                    <li>Multiple formulations side-by-side</li>
+                                    <li>Comprehensive monitoring equipment</li>
+                                    <li>Duration: 1 year</li>
+                                </ul>
+                            </div>
+                            <div class="border rounded-lg p-4 bg-indigo-50">
+                                <h4 class="font-semibold text-indigo-800 mb-2">Phase 2: Targeted Implementation</h4>
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>1-2 km urban corridor sections</li>
+                                    <li>Optimized formulation based on Phase 1</li>
+                                    <li>Regular performance monitoring</li>
+                                    <li>Duration: 2 years</li>
+                                </ul>
+                            </div>
+                            <div class="border rounded-lg p-4 bg-purple-50">
+                                <h4 class="font-semibold text-purple-800 mb-2">Phase 3: Expanded Deployment</h4>
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>Multi-kilometer highway sections</li>
+                                    <li>Regional-specific formulations</li>
+                                    <li>Policy integration and standards</li>
+                                    <li>Duration: Ongoing</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-lg p-4 bg-gray-50 mb-4">
+                            <h4 class="font-semibold mb-2">Recommended Pilot Locations:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="font-medium">Baghdad:</p>
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Urban arterial roads with significant heat island effect</li>
+                                        <li>University campus roads for academic monitoring</li>
+                                        <li>Industrial zone access roads with heavy truck traffic</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Regional Sites:</p>
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Basra: Coastal highway segment with high humidity exposure</li>
+                                        <li>Mosul: Urban road section experiencing freeze-thaw cycles</li>
+                                        <li>Western Province: Desert highway section with extreme temperature swings</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-lg p-4 bg-gray-50">
+                            <h4 class="font-semibold mb-2">Monitoring & Evaluation Framework:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="font-medium">Performance Metrics:</p>
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Temperature differential vs. control sections</li>
+                                        <li>Surface degradation assessment (quarterly)</li>
+                                        <li>Color transition efficiency over time</li>
+                                        <li>Mechanical performance (rutting, cracking)</li>
+                                        <li>Maintenance requirements</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Documentation & Reporting:</p>
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Monthly performance reports</li>
+                                        <li>Quarterly technical assessments</li>
+                                        <li>Annual comprehensive evaluation</li>
+                                        <li>Public information campaign materials</li>
+                                        <li>Academic publication of findings</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Documentation Tab -->
+            <div id="content-documentation" class="tab-content mt-6">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-book mr-2 text-blue-600"></i>Technical Foundation
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Thermochromic Material Fundamentals</h3>
+                        <p class="mb-4">
+                            Thermochromic asphalt incorporates special pigments that change color reversibly in response to temperature variations. 
+                            This technology works by integrating microencapsulated thermochromic materials into the asphalt binder or as a surface treatment.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-medium mb-2">Working Mechanism:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>At low temperatures, the material appears darker, absorbing more solar radiation to warm the pavement</li>
+                                    <li>At high temperatures, it transitions to a lighter color, reflecting more solar radiation to reduce heat absorption</li>
+                                    <li>The transition occurs around a specific temperature threshold (typically 30-40°C)</li>
+                                    <li>This dynamic response helps regulate surface temperature year-round</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Material Composition:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>Leuco dyes: Organic compounds that change color with temperature</li>
+                                    <li>Microencapsulation: Protects the thermochromic materials from degradation</li>
+                                    <li>Color developers: Control the transition temperature and color intensity</li>
+                                    <li>UV inhibitors: Protect against solar radiation degradation</li>
+                                    <li>Binding agents: Ensure proper integration with asphalt materials</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Mathematical Models</h3>
+                        <p class="mb-4">
+                            The performance analysis tool uses several mathematical models to predict thermochromic asphalt behavior under various conditions.
+                        </p>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-medium mb-2">Temperature-Dependent Absorptivity Function:</h4>
+                            <p class="mb-2">The solar absorptivity of thermochromic asphalt varies with temperature according to:</p>
+                            <div class="bg-white p-3 border rounded text-center">
+                                <p>α(T) = α<sub>min</sub> + (α<sub>max</sub> - α<sub>min</sub>) / (1 + e<sup>-k(T-T<sub>c</sub>)</sup>)</p>
+                            </div>
+                            <p class="mt-2 text-sm">
+                                Where:<br>
+                                α(T) = Temperature-dependent solar absorptivity<br>
+                                α<sub>min</sub> = Minimum absorptivity (high temperature state)<br>
+                                α<sub>max</sub> = Maximum absorptivity (low temperature state)<br>
+                                T<sub>c</sub> = Critical transition temperature (°C)<br>
+                                k = Transition steepness parameter
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-medium mb-2">Heat Transfer Model:</h4>
+                            <p class="mb-2">The surface temperature of asphalt pavement is calculated using:</p>
+                            <div class="bg-white p-3 border rounded text-center">
+                                <p>T(z,t) = T<sub>air</sub>(t) + [α(T) · I(t) / h] × [1 - e<sup>-βz</sup>] + ΔT<sub>history</sub>(z,t)</p>
+                            </div>
+                            <p class="mt-2 text-sm">
+                                Where:<br>
+                                T(z,t) = Temperature at depth z and time t (°C)<br>
+                                T<sub>air</sub>(t) = Ambient air temperature at time t (°C)<br>
+                                I(t) = Solar radiation intensity at time t (W/m²)<br>
+                                h = Combined convection-radiation heat transfer coefficient (W/m²·K)<br>
+                                β = Thermal diffusion coefficient for asphalt (m⁻¹)<br>
+                                ΔT<sub>history</sub>(z,t) = Temperature contribution from previous thermal states
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-medium mb-2">Material Degradation Model:</h4>
+                            <p class="mb-2">The long-term degradation of thermochromic properties is modeled as:</p>
+                            <div class="bg-white p-3 border rounded text-center">
+                                <p>α(T,t<sub>age</sub>) = α(T) · [1 + γ<sub>UV</sub>(r) · t<sub>age</sub><sup>0.5</sup> + γ<sub>H</sub>(r) · H(r) · t<sub>age</sub>]</p>
+                            </div>
+                            <p class="mt-2 text-sm">
+                                Where:<br>
+                                t<sub>age</sub> = Asphalt age (years)<br>
+                                γ<sub>UV</sub>(r) = UV degradation coefficient for region r (year⁻⁰·⁵)<br>
+                                γ<sub>H</sub>(r) = Humidity degradation coefficient for region r (year⁻¹)<br>
+                                H(r) = Average relative humidity for region r (%)
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Performance Metrics Calculation</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium mb-2">Thermal Efficiency (TE):</h4>
+                            <div class="bg-white p-3 border rounded text-center">
+                                <p>TE(r) = [(T<sub>max,conv</sub>(r) - T<sub>max,thermo</sub>(r)) / (T<sub>max,conv</sub>(r) - T<sub>air,avg</sub>(r))] × 100%</p>
+                            </div>
+                            <p class="mt-2 text-sm">
+                                This calculates how effectively the thermochromic asphalt reduces surface temperature compared to conventional asphalt.
+                            </p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium mb-2">Durability Index (DI):</h4>
+                            <div class="bg-white p-3 border rounded text-center">
+                                <p>DI(r,t<sub>age</sub>) = 100 - [(N<sub>TC</sub>(r) · ΔT<sub>avg</sub>(r)) / 1000] · t<sub>age</sub> - K<sub>UV</sub>(r) · t<sub>age</sub><sup>0.5</sup></p>
+                            </div>
+                            <p class="mt-2 text-sm">
+                                This estimates material durability considering thermal cycling and UV degradation over time.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-medium mb-2">Regional Performance Index (RPI):</h4>
+                            <div class="bg-white p-3 border rounded text-center">
+                                <p>RPI(r) = w<sub>1</sub> · TE(r) + w<sub>2</sub> · DI(r,5) + w<sub>3</sub> · CE(r)</p>
+                            </div>
+                            <p class="mt-2 text-sm">
+                                This weighted index combines thermal efficiency, durability, and cost effectiveness to provide an overall performance score.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Iraqi Climate Considerations</h3>
+                        <p class="mb-4">
+                            The analysis tool incorporates specific data for Iraqi climate conditions, which significantly impact thermochromic asphalt performance.
+                        </p>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="p-2 border">Region</th>
+                                        <th class="p-2 border">Peak Summer Temp (°C)</th>
+                                        <th class="p-2 border">Min Winter Temp (°C)</th>
+                                        <th class="p-2 border">Solar Radiation (W/m²)</th>
+                                        <th class="p-2 border">Humidity (%)</th>
+                                        <th class="p-2 border">UV Factor</th>
+                                        <th class="p-2 border">Key Challenge</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-2 border">Baghdad</td>
+                                        <td class="p-2 border">48-50</td>
+                                        <td class="p-2 border">5-7</td>
+                                        <td class="p-2 border">800-900</td>
+                                        <td class="p-2 border">25-35</td>
+                                        <td class="p-2 border">1.1</td>
+                                        <td class="p-2 border">Extreme heat, UHI effect</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border">Basra</td>
+                                        <td class="p-2 border">50-52</td>
+                                        <td class="p-2 border">8-10</td>
+                                        <td class="p-2 border">850-950</td>
+                                        <td class="p-2 border">60-70</td>
+                                        <td class="p-2 border">1.2</td>
+                                        <td class="p-2 border">Heat + humidity, salinity</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border">Mosul</td>
+                                        <td class="p-2 border">42-45</td>
+                                        <td class="p-2 border">-2 to 0</td>
+                                        <td class="p-2 border">750-850</td>
+                                        <td class="p-2 border">35-45</td>
+                                        <td class="p-2 border">1.0</td>
+                                        <td class="p-2 border">Freeze-thaw cycles</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border">Erbil</td>
+                                        <td class="p-2 border">40-44</td>
+                                        <td class="p-2 border">-3 to 0</td>
+                                        <td class="p-2 border">700-800</td>
+                                        <td class="p-2 border">30-40</td>
+                                        <td class="p-2 border">0.9</td>
+                                        <td class="p-2 border">Large seasonal variations</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border">Anbar</td>
+                                        <td class="p-2 border">46-49</td>
+                                        <td class="p-2 border">3-6</td>
+                                        <td class="p-2 border">850-950</td>
+                                        <td class="p-2 border">20-30</td>
+                                        <td class="p-2 border">1.3</td>
+                                        <td class="p-2 border">Dust storms, extreme heat</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reference Studies -->
+                <div class="card mt-6">
+                    <div class="card-header">
+                        <i class="fas fa-graduation-cap mr-2 text-blue-600"></i>Reference Studies
+                    </div>
+                    
+                    <p class="mb-4">
+                        This analysis tool incorporates findings from numerous research studies on thermochromic asphalt technology and pavement performance in extreme climates.
+                    </p>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Key International Research:</h3>
+                        <div class="border rounded-lg p-4 bg-gray-50 mb-4">
+                            <h4 class="font-medium mb-2">Temperature Reduction Performance:</h4>
+                            <ul class="list-disc pl-5">
+                                <li><span class="font-medium">Zhang et al. (2021):</span> Demonstrated 3-7°C temperature reduction with 3-6% thermochromic pigment concentration.</li>
+                                <li><span class="font-medium">Tokyo Pilot Study (2019):</span> Achieved approximately 6.6°C lower surface temperature using 5% thermochromic pigment in urban conditions.</li>
+                                <li><span class="font-medium">Cleveland Field Test (2018):</span> Recorded temperature reductions up to 5.3°C in summer, lowering thermal gradients by 17 K/m.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border rounded-lg p-4 bg-gray-50 mb-4">
+                            <h4 class="font-medium mb-2">Durability and Degradation Studies:</h4>
+                            <ul class="list-disc pl-5">
+                                <li><span class="font-medium">Chen et al. (2024):</span> Found that UV exposure reduces thermochromic efficiency by 20-30% over five years.</li>
+                                <li><span class="font-medium">Hu & Yu (2016):</span> Demonstrated polymeric thermochromic materials improve pavement durability in extreme temperature conditions.</li>
+                                <li><span class="font-medium">Yu et al. (2022):</span> Researched performance of temperature responsive asphalt mixture with thermochromic material under various environmental conditions.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border rounded-lg p-4 bg-gray-50">
+                            <h4 class="font-medium mb-2">Economic and Environmental Impact Studies:</h4>
+                            <ul class="list-disc pl-5">
+                                <li><span class="font-medium">Lima et al. (2022):</span> Documented thermochromic asphalt's potential to mitigate urban heat island effects in densely populated areas.</li>
+                                <li><span class="font-medium">Gong et al. (2023):</span> Conducted a systematic review on strategies for reducing asphalt pavement temperature.</li>
+                                <li><span class="font-medium">Hu (2016):</span> Analyzed economic benefits of thermochromic asphalt implementation, showing positive ROI despite higher initial costs.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Iraqi-Specific Research:</h3>
+                        <div class="border rounded-lg p-4 bg-gray-50">
+                            <h4 class="font-medium mb-2">Local Asphalt Modification Studies:</h4>
+                            <ul class="list-disc pl-5">
+                                <li><span class="font-medium">Darwesh et al. (2017):</span> Studied modification of Iraqi Asphalt 40/50 properties using saw dust and natural rubber latex, demonstrating that a 5% polymer dosage significantly improves rutting and cracking resistance.</li>
+                                <li><span class="font-medium">Abbas (2023):</span> Explored the feasibility of thermochromic asphalt for sustainable road infrastructure in Iraq, analyzing potential adaptations for Iraq's extreme climate.</li>
+                                <li><span class="font-medium">Iraqi Ministry of Construction and Housing (2021):</span> Technical report on pavement performance in extreme heat conditions documented premature failures and maintenance challenges.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model Limitations -->
+                <div class="card mt-6">
+                    <div class="card-header">
+                        <i class="fas fa-exclamation-triangle mr-2 text-yellow-600"></i>Model Limitations & Considerations
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p>
+                            While this analysis tool provides valuable insights for thermochromic asphalt implementation in Iraq, 
+                            users should be aware of the following limitations and considerations:
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Technical Limitations:</h3>
+                        <ul class="list-disc pl-5">
+                            <li><span class="font-medium">Simplified Heat Transfer:</span> The model uses simplified heat transfer equations that may not capture all complexities of real-world thermal behavior.</li>
+                            <li><span class="font-medium">Uniform Material Properties:</span> Assumes uniform distribution of thermochromic pigments throughout the asphalt, which may vary in practice.</li>
+                            <li><span class="font-medium">Linear Degradation:</span> The degradation model uses approximate relationships that may not fully capture complex material aging processes.</li>
+                            <li><span class="font-medium">Limited Field Validation:</span> While based on international studies, limited Iraq-specific field data exists for model validation.</li>
+                            <li><span class="font-medium">Traffic Effects:</span> Simplified treatment of traffic-induced heating and mechanical wear on thermochromic performance.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Implementation Considerations:</h3>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-4">
+                            <p class="text-yellow-800">
+                                <span class="font-medium">Material Availability:</span> Thermochromic materials may require international sourcing, adding logistical complexity and potential delays.
+                            </p>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-4">
+                            <p class="text-yellow-800">
+                                <span class="font-medium">Technical Expertise:</span> Specialized knowledge for proper material handling, mixing, and application may require additional training for local contractors.
+                            </p>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+                            <p class="text-yellow-800">
+                                <span class="font-medium">Cost Variability:</span> Actual implementation costs may vary based on material availability, import duties, and local economic conditions.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Recommended Model Improvements:</h3>
+                        <ul class="list-disc pl-5">
+                            <li><span class="font-medium">Field Validation:</span> Conduct localized testing to refine model parameters for Iraqi conditions.</li>
+                            <li><span class="font-medium">Expanded Climate Data:</span> Incorporate more granular climate data including sand/dust storms specific to Iraq.</li>
+                            <li><span class="font-medium">Traffic Integration:</span> Develop more sophisticated models for traffic effects on thermochromic performance.</li>
+                            <li><span class="font-medium">Material Sourcing Analysis:</span> Add logistics and supply chain modeling for material procurement.</li>
+                            <li><span class="font-medium">Maintenance Optimization:</span> Develop detailed maintenance prediction models based on local conditions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-500 mt-12 pt-6 border-t border-gray-200">
+        <p>Thermochromic Asphalt Performance Analysis Tool for Iraq</p>
+        <p class="text-sm mt-1">Developed based on comprehensive research and engineering principles</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Tab Switching
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = ['input', 'results', 'implementation', 'documentation'];
+            
+            tabs.forEach(tab => {
+                document.getElementById(`tab-${tab}`).addEventListener('click', function() {
+                    // Hide all tab contents
+                    tabs.forEach(t => {
+                        document.getElementById(`content-${t}`).classList.remove('active');
+                        document.getElementById(`tab-${t}`).classList.remove('text-blue-600', 'border-b-2', 'border-blue-600');
+                        document.getElementById(`tab-${t}`).classList.add('text-gray-500');
+                    });
+                    
+                    // Show selected tab content
+                    document.getElementById(`content-${tab}`).classList.add('active');
+                    document.getElementById(`tab-${tab}`).classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+                    document.getElementById(`tab-${tab}`).classList.remove('text-gray-500');
+                });
+            });
+            
+            // Calculate button
+            document.getElementById('calculate-btn').addEventListener('click', function() {
+                calculatePerformance();
+                // Switch to results tab
+                document.getElementById('tab-results').click();
+            });
+            
+            // Governorate selection
+            document.getElementById('governorate').addEventListener('change', function() {
+                updateGovernorateData(this.value);
+            });
+            
+            // Initial chart rendering
+            renderCharts();
+        });
+        
+        // Update form with governorate data
+        function updateGovernorateData(governorate) {
+            const governorateData = {
+                'baghdad': {
+                    maxTemp: 50, 
+                    minTemp: 5, 
+                    avgTemp: 25, 
+                    solarRadiation: 900, 
+                    humidity: 30, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.1,
+                    freezeThaw: 0
+                },
+                'basra': {
+                    maxTemp: 52, 
+                    minTemp: 8, 
+                    avgTemp: 28, 
+                    solarRadiation: 950, 
+                    humidity: 65, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.2,
+                    freezeThaw: 0
+                },
+                'mosul': {
+                    maxTemp: 45, 
+                    minTemp: -2, 
+                    avgTemp: 20, 
+                    solarRadiation: 850, 
+                    humidity: 40, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.0,
+                    freezeThaw: 25
+                },
+                'erbil': {
+                    maxTemp: 44, 
+                    minTemp: -3, 
+                    avgTemp: 19, 
+                    solarRadiation: 800, 
+                    humidity: 35, 
+                    thermalCycles: 365, 
+                    uvFactor: 0.9,
+                    freezeThaw: 30
+                },
+                'najaf': {
+                    maxTemp: 49, 
+                    minTemp: 6, 
+                    avgTemp: 26, 
+                    solarRadiation: 920, 
+                    humidity: 25, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.1,
+                    freezeThaw: 0
+                },
+                'kirkuk': {
+                    maxTemp: 47, 
+                    minTemp: 0, 
+                    avgTemp: 22, 
+                    solarRadiation: 870, 
+                    humidity: 30, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.0,
+                    freezeThaw: 10
+                },
+                'diyala': {
+                    maxTemp: 48, 
+                    minTemp: 2, 
+                    avgTemp: 24, 
+                    solarRadiation: 880, 
+                    humidity: 35, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.0,
+                    freezeThaw: 5
+                },
+                'anbar': {
+                    maxTemp: 49, 
+                    minTemp: 4, 
+                    avgTemp: 25, 
+                    solarRadiation: 950, 
+                    humidity: 20, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.3,
+                    freezeThaw: 0
+                },
+                'babylon': {
+                    maxTemp: 49, 
+                    minTemp: 6, 
+                    avgTemp: 25, 
+                    solarRadiation: 900, 
+                    humidity: 35, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.0,
+                    freezeThaw: 0
+                },
+                'karbala': {
+                    maxTemp: 49, 
+                    minTemp: 6, 
+                    avgTemp: 26, 
+                    solarRadiation: 910, 
+                    humidity: 30, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.1,
+                    freezeThaw: 0
+                },
+                'wasit': {
+                    maxTemp: 49, 
+                    minTemp: 5, 
+                    avgTemp: 25, 
+                    solarRadiation: 900, 
+                    humidity: 35, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.1,
+                    freezeThaw: 0
+                },
+                'dhi-qar': {
+                    maxTemp: 51, 
+                    minTemp: 7, 
+                    avgTemp: 27, 
+                    solarRadiation: 930, 
+                    humidity: 40, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.2,
+                    freezeThaw: 0
+                },
+                'maysan': {
+                    maxTemp: 51, 
+                    minTemp: 7, 
+                    avgTemp: 27, 
+                    solarRadiation: 920, 
+                    humidity: 45, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.2,
+                    freezeThaw: 0
+                },
+                'muthanna': {
+                    maxTemp: 51, 
+                    minTemp: 7, 
+                    avgTemp: 27, 
+                    solarRadiation: 940, 
+                    humidity: 25, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.3,
+                    freezeThaw: 0
+                },
+                'duhok': {
+                    maxTemp: 42, 
+                    minTemp: -4, 
+                    avgTemp: 18, 
+                    solarRadiation: 780, 
+                    humidity: 40, 
+                    thermalCycles: 365, 
+                    uvFactor: 0.9,
+                    freezeThaw: 35
+                },
+                'sulaymaniyah': {
+                    maxTemp: 41, 
+                    minTemp: -3, 
+                    avgTemp: 18, 
+                    solarRadiation: 790, 
+                    humidity: 35, 
+                    thermalCycles: 365, 
+                    uvFactor: 0.9,
+                    freezeThaw: 30
+                },
+                'saladin': {
+                    maxTemp: 47, 
+                    minTemp: 2, 
+                    avgTemp: 23, 
+                    solarRadiation: 890, 
+                    humidity: 30, 
+                    thermalCycles: 365, 
+                    uvFactor: 1.1,
+                    freezeThaw: 5
+                }
+            };
+            
+            if (governorate !== 'custom' && governorateData[governorate]) {
+                const data = governorateData[governorate];
+                document.getElementById('max-temp').value = data.maxTemp;
+                document.getElementById('min-temp').value = data.minTemp;
+                document.getElementById('avg-temp').value = data.avgTemp;
+                document.getElementById('solar-radiation').value = data.solarRadiation;
+                document.getElementById('humidity').value = data.humidity;
+                document.getElementById('thermal-cycles').value = data.thermalCycles;
+                document.getElementById('uv-factor').value = data.uvFactor;
+                document.getElementById('freeze-thaw').value = data.freezeThaw;
+            }
+        }
+        
+        // Calculate performance based on inputs
+        function calculatePerformance() {
+            // Get input values
+            const govName = document.getElementById('governorate').options[document.getElementById('governorate').selectedIndex].text;
+            const maxTemp = parseFloat(document.getElementById('max-temp').value);
+            const avgTemp = parseFloat(document.getElementById('avg-temp').value);
+            const humidity = parseFloat(document.getElementById('humidity').value);
+            const uvFactor = parseFloat(document.getElementById('uv-factor').value);
+            const freezeThaw = parseFloat(document.getElementById('freeze-thaw').value);
+            const pigmentConcentration = parseFloat(document.getElementById('pigment-concentration').value);
+            const materialType = document.getElementById('material-type').value;
+            const costPremium = parseFloat(document.getElementById('cost-premium').value);
+            const serviceLife = parseFloat(document.getElementById('service-life').value);
+            
+            // Calculate temperature reduction (based on pigment concentration, max temp, and material type)
+            let tempReduction = (3.5 + (pigmentConcentration - 3) * 0.5);
+            
+            // Adjust for material type
+            if (materialType === 'uv-resistant') tempReduction *= 0.95;
+            if (materialType === 'humidity-resistant') tempReduction *= 0.9;
+            if (materialType === 'premium') tempReduction *= 1.1;
+            
+            // Adjust for extreme temperatures
+            if (maxTemp > 48) tempReduction *= 1.1;
+            if (maxTemp < 42) tempReduction *= 0.9;
+            
+            // Calculate life extension (based on temp reduction and climate factors)
+            let lifeExtension = 20 + tempReduction * 2;
+            
+            // Adjust for climate factors
+            if (freezeThaw > 10) lifeExtension -= freezeThaw * 0.3;
+            if (humidity > 50) lifeExtension -= (humidity - 50) * 0.2;
+            if (uvFactor > 1.1) lifeExtension -= (uvFactor - 1.1) * 15;
+            
+            // Calculate overall score (0-100)
+            let overallScore = 65 + tempReduction * 4 + (lifeExtension - 20);
+            
+            // Adjust for cost efficiency
+            const costEfficiency = 100 - costPremium * 1.5 + lifeExtension * 0.8;
+            overallScore = (overallScore * 0.7) + (costEfficiency * 0.3);
+            
+            // Clamp values to reasonable ranges
+            tempReduction = Math.max(2.5, Math.min(8.0, tempReduction));
+            lifeExtension = Math.max(10, Math.min(40, lifeExtension));
+            overallScore = Math.max(50, Math.min(98, overallScore));
+            
+            // Update result displays
+            document.getElementById('overall-score').textContent = Math.round(overallScore);
+            document.getElementById('score-bar').style.width = `${overallScore}%`;
+            document.getElementById('temp-reduction').textContent = tempReduction.toFixed(1);
+            document.getElementById('life-extension').textContent = Math.round(lifeExtension);
+            document.getElementById('result-location').textContent = `${govName}, Iraq`;
+            
+            // Update conventional vs thermochromic values
+            document.getElementById('conv-temp').textContent = `${(maxTemp + 2).toFixed(1)}°C`;
+            document.getElementById('thermo-temp').textContent = `${(maxTemp + 2 - tempReduction).toFixed(1)}°C`;
+            document.getElementById('conv-life').textContent = `12 years`;
+            document.getElementById('thermo-life').textContent = `${(12 * (1 + lifeExtension/100)).toFixed(1)} years`;
+            
+            // Set performance category
+            let performanceCategory = 'Good';
+            if (overallScore >= 90) performanceCategory = 'Exceptional';
+            else if (overallScore >= 80) performanceCategory = 'Excellent';
+            else if (overallScore >= 70) performanceCategory = 'Very Good';
+            else if (overallScore < 60) performanceCategory = 'Adequate';
+            document.getElementById('performance-category').textContent = performanceCategory;
+            
+            // Update recommendations based on calculations
+            document.getElementById('recommendation-1').textContent = 
+                `Thermochromic asphalt with ${pigmentConcentration}% pigment concentration would provide optimal performance for ${govName}'s climate conditions.`;
+                
+            if (humidity > 50) {
+                document.getElementById('recommendation-2').textContent = 
+                    `The addition of a humidity-resistant protective coating is strongly recommended due to high humidity levels in this region.`;
+            } else if (uvFactor > 1.1) {
+                document.getElementById('recommendation-2').textContent = 
+                    `The addition of a UV-resistant protective coating is strongly recommended due to high UV exposure in this region.`;
+            } else {
+                document.getElementById('recommendation-2').textContent = 
+                    `The addition of a standard protective coating is recommended to maximize performance longevity.`;
+            }
+            
+            document.getElementById('recommendation-3').textContent = 
+                `Expected temperature reduction of ${tempReduction.toFixed(1)}°C will significantly extend pavement life and reduce maintenance frequency.`;
+                
+            document.getElementById('recommendation-4').textContent = 
+                `The ${costPremium}% initial cost premium is economically justified with a ${Math.round(lifeExtension * 0.8)}% return on investment over the lifecycle.`;
+                
+            // Update charts with new data
+            updateCharts(maxTemp, tempReduction, serviceLife, costPremium, lifeExtension);
+        }
+        
+        // Initialize charts
+        function renderCharts() {
+            // Temperature Performance Chart
+            const tempCtx = document.getElementById('temperature-chart').getContext('2d');
+            window.tempChart = new Chart(tempCtx, {
+                type: 'line',
+                data: {
+                    labels: ['6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00'],
+                    datasets: [{
+                        label: 'Conventional Asphalt',
+                        data: [28, 35, 43, 52, 56, 54, 48, 40],
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }, {
+                        label: 'Thermochromic Asphalt',
+                        data: [28, 33, 39, 46, 50, 48, 44, 38],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Surface Temperature (°C)'
+                            },
+                            min: 25
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time of Day'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Lifecycle Cost Chart
+            const costCtx = document.getElementById('cost-chart').getContext('2d');
+            window.costChart = new Chart(costCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Year 0', 'Year 4', 'Year 8', 'Year 12', 'Year 16', 'Year 20'],
+                    datasets: [{
+                        label: 'Conventional Asphalt',
+                        data: [100, 115, 185, 205, 270, 290],
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        tension: 0.1,
+                        fill: true,
+                        stepped: true
+                    }, {
+                        label: 'Thermochromic Asphalt',
+                        data: [115, 120, 125, 185, 190, 195],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.1,
+                        fill: true,
+                        stepped: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += '₹' + context.parsed.y + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Cumulative Cost (% of Initial Conventional Cost)'
+                            },
+                            min: 90
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Service Life'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Degradation Chart
+            const degCtx = document.getElementById('degradation-chart').getContext('2d');
+            window.degChart = new Chart(degCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Year 0', 'Year 2', 'Year 4', 'Year 6', 'Year 8', 'Year 10', 'Year 12', 'Year 14', 'Year 16', 'Year 18', 'Year 20'],
+                    datasets: [{
+                        label: 'Thermal Efficiency (%)',
+                        data: [100, 95, 90, 85, 80, 75, 70, 65, 60, 55, 50],
+                        borderColor: '#3b82f6',
+                        tension: 0.2,
+                        yAxisID: 'y'
+                    }, {
+                        label: 'Temperature Reduction (°C)',
+                        data: [5.2, 5.0, 4.7, 4.4, 4.2, 3.9, 3.6, 3.4, 3.1, 2.9, 2.6],
+                        borderColor: '#10b981',
+                        tension: 0.2,
+                        yAxisID: 'y1'
+                    }, {
+                        label: 'Durability Index',
+                        data: [100, 96, 92, 88, 83, 78, 73, 68, 62, 56, 50],
+                        borderColor: '#f59e0b',
+                        tension: 0.2,
+                        yAxisID: 'y'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        }
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Efficiency/Durability (%)'
+                            },
+                            min: 40,
+                            max: 105
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Temperature Reduction (°C)'
+                            },
+                            min: 2,
+                            max: 6,
+                            grid: {
+                                drawOnChartArea: false,
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Service Life'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Update charts with calculated values
+        function updateCharts(maxTemp, tempReduction, serviceLife, costPremium, lifeExtension) {
+            // Update temperature chart
+            const morningTemp = maxTemp - 20;
+            const noonTemp = maxTemp;
+            const eveningTemp = maxTemp - 12;
+            
+            const conventionalData = [
+                morningTemp, 
+                morningTemp + 7, 
+                morningTemp + 15, 
+                noonTemp, 
+                noonTemp + 4, 
+                noonTemp, 
+                eveningTemp, 
+                eveningTemp - 8
+            ];
+            
+            const thermochromicData = conventionalData.map(temp => {
+                // Apply more reduction at higher temperatures
+                let reduction = tempReduction * (temp / noonTemp) * 0.9;
+                if (temp > noonTemp - 5) reduction = tempReduction;
+                return temp - reduction;
+            });
+            
+            window.tempChart.data.datasets[0].data = conventionalData;
+            window.tempChart.data.datasets[1].data = thermochromicData;
+            window.tempChart.update();
+            
+            // Update lifecycle cost chart
+            const conventionalCost = [100];
+            const thermochromicCost = [100 + costPremium];
+            
+            // Conventional maintenance pattern (every 4 years)
+            for (let year = 4; year <= 20; year += 4) {
+                const prevCost = conventionalCost[conventionalCost.length - 1];
+                conventionalCost.push(prevCost + 20); // 20% maintenance cost
+            }
+            
+            // Thermochromic maintenance pattern (less frequent due to life extension)
+            const maintenanceInterval = 4 * (1 + lifeExtension/100);
+            let nextMaintenance = maintenanceInterval;
+            
+            for (let year = 4; year <= 20; year += 4) {
+                const prevCost = thermochromicCost[thermochromicCost.length - 1];
+                
+                if (year >= nextMaintenance) {
+                    thermochromicCost.push(prevCost + 15); // 15% maintenance cost (lower than conventional)
+                    nextMaintenance += maintenanceInterval;
+                } else {
+                    thermochromicCost.push(prevCost);
+                }
+            }
+            
+            window.costChart.data.datasets[0].data = conventionalCost;
+            window.costChart.data.datasets[1].data = thermochromicCost;
+            window.costChart.update();
+            
+            // Update degradation chart
+            const years = Array.from({length: 11}, (_, i) => i * 2); // 0, 2, 4, ..., 20
+            
+            // Thermal efficiency degradation (starts at 100%, degrades over time)
+            const thermalEfficiency = years.map(year => {
+                return Math.max(50, 100 - year * 2.5);
+            });
+            
+            // Temperature reduction degradation
+            const tempReductionOverTime = years.map(year => {
+                return Math.max(tempReduction * 0.5, tempReduction * (1 - year * 0.025));
+            });
+            
+            // Durability index degradation
+            const durabilityIndex = years.map(year => {
+                return Math.max(50, 100 - year * 2.5);
+            });
+            
+            window.degChart.data.datasets[0].data = thermalEfficiency;
+            window.degChart.data.datasets[1].data = tempReductionOverTime;
+            window.degChart.data.datasets[2].data = durabilityIndex;
+            window.degChart.update();
+        }
+    </script>
+<script>
+// دالة للتنقل بين التبويبات
+function showTab(tabId) {
+    // إخفاء جميع التبويبات
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    // إلغاء تفعيل جميع التبويبات
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    // تفعيل التبويب المحدد
+    document.getElementById(tabId).classList.add('active');
+    document.querySelector(`[onclick="showTab('${tabId}')"]`).classList.add('active');
+}
+
+// دالة لتحميل بيانات المنطقة
+function loadRegionData() {
+    const region = document.getElementById('regionSelect').value;
+    const baseTemp = document.getElementById('baseTemp');
+    const tempAmplitude = document.getElementById('tempAmplitude');
+    const maxSolarRad = document.getElementById('maxSolarRad');
+    const humidity = document.getElementById('humidity');
+
+    // تحديث القيم بناءً على المنطقة
+    if (region === 'baghdad') {
+        baseTemp.value = 30;
+        tempAmplitude.value = 20;
+        maxSolarRad.value = 1000;
+        humidity.value = 40;
+    } else if (region === 'basra') {
+        baseTemp.value = 35;
+        tempAmplitude.value = 15;
+        maxSolarRad.value = 950;
+        humidity.value = 60;
+    } else if (region === 'mosul') {
+        baseTemp.value = 25;
+        tempAmplitude.value = 18;
+        maxSolarRad.value = 900;
+        humidity.value = 35;
+    } else if (region === 'erbil') {
+        baseTemp.value = 22;
+        tempAmplitude.value = 17;
+        maxSolarRad.value = 880;
+        humidity.value = 30;
+    } else if (region === 'najaf') {
+        baseTemp.value = 32;
+        tempAmplitude.value = 19;
+        maxSolarRad.value = 970;
+        humidity.value = 45;
+    } else {
+        baseTemp.value = 25;
+        tempAmplitude.value = 15;
+        maxSolarRad.value = 900;
+        humidity.value = 30;
+    }
+}
+
+// دالة لحساب الأداء (مثال مبسط)
+function calculateAll() {
+    alert('Calculating performance...');
+    // أضيفي هنا الكود الخاص بالحسابات وتحديث الجداول والرسوم البيانية
+    // مثال: تحديث خلية في جدول الحسابات
+    document.getElementById('minAbsorptivity').innerHTML = '0.4 - 0.05 × Pigment% = 0.2';
+}
+
+// دالة لإنشاء الرسوم البيانية (مثال بسيط)
+document.addEventListener('DOMContentLoaded', function() {
+    // الرسم البياني للأداء الحراري
+    const thermalPerformanceChart = new Chart(document.getElementById('thermalPerformanceChart'), {
+        type: 'line',
+        data: {
+            labels: ['Year 1', 'Year 5', 'Year 10'],
+            datasets: [{
+                label: 'Thermal Efficiency (%)',
+                data: [65, 58, 52],
+                borderColor: '#3b82f6',
+                fill: false
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    // الرسم البياني للمتانة
+    const durabilityChart = new Chart(document.getElementById('durabilityChart'), {
+        type: 'line',
+        data: {
+            labels: ['Year 1', 'Year 5', 'Year 10'],
+            datasets: [{
+                label: 'Durability Index (%)',
+                data: [93.4, 84, 75],
+                borderColor: '#38a169',
+                fill: false
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    // الرسم البياني لتحليل التكلفة والفائدة
+    const costBenefitChart = new Chart(document.getElementById('costBenefitChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Initial Cost', 'Lifetime Savings'],
+            datasets: [{
+                label: 'Cost/Benefit',
+                data: [-15, 18.7],
+                backgroundColor: ['#e53e3e', '#38a169']
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    // الرسم البياني للملف الحراري
+    const temperatureProfileChart = new Chart(document.getElementById('temperatureProfileChart'), {
+        type: 'line',
+        data: {
+            labels: ['6 AM', '9 AM', '12 PM', '3 PM', '6 PM', '9 PM'],
+            datasets: [
+                {
+                    label: 'Conventional Asphalt (°C)',
+                    data: [30, 35, 40, 38, 35, 32],
+                    borderColor: '#e53e3e',
+                    fill: false
+                },
+                {
+                    label: 'Thermochromic Asphalt (°C)',
+                    data: [28, 32, 35, 34, 32, 30],
+                    borderColor: '#3b82f6',
+                    fill: false
+                }
+            ]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+});
+</script>
+</body>
+</html>

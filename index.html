@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thermochromic Asphalt Performance Analysis Tool for Iraq</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="./fontawesome.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="./jspdf.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
     <style>
         body {
@@ -101,6 +103,16 @@
                 box-shadow: none;
                 border: 1px solid #e2e8f0;
             }
+@media (max-width: 640px) {
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+    .chart-container {
+        height: 200px; /* تقليل ارتفاع الرسوم البيانية على الشاشات الصغيرة */
+    }
+}
         }
     </style>
 </head>
@@ -2012,6 +2024,7 @@
         }
     </script>
 <script>
+let thermalPerformanceChart, durabilityChart, costBenefitChart, temperatureProfileChart;
 // دالة للتنقل بين التبويبات
 function showTab(tabId) {
     // إخفاء جميع التبويبات
@@ -2080,7 +2093,7 @@ function calculateAll() {
 // دالة لإنشاء الرسوم البيانية (مثال بسيط)
 document.addEventListener('DOMContentLoaded', function() {
     // الرسم البياني للأداء الحراري
-    const thermalPerformanceChart = new Chart(document.getElementById('thermalPerformanceChart'), {
+    thermalPerformanceChart = new Chart(document.getElementById('thermalPerformanceChart'), {
         type: 'line',
         data: {
             labels: ['Year 1', 'Year 5', 'Year 10'],
@@ -2091,11 +2104,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 fill: false
             }]
         },
-        options: { scales: { y: { beginAtZero: true } } }
+        options: { 
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+        }
     });
 
     // الرسم البياني للمتانة
-    const durabilityChart = new Chart(document.getElementById('durabilityChart'), {
+    durabilityChart = new Chart(document.getElementById('durabilityChart'), {
         type: 'line',
         data: {
             labels: ['Year 1', 'Year 5', 'Year 10'],
@@ -2106,11 +2123,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 fill: false
             }]
         },
-        options: { scales: { y: { beginAtZero: true } } }
+        options: { 
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+        }
     });
 
     // الرسم البياني لتحليل التكلفة والفائدة
-    const costBenefitChart = new Chart(document.getElementById('costBenefitChart'), {
+    costBenefitChart = new Chart(document.getElementById('costBenefitChart'), {
         type: 'bar',
         data: {
             labels: ['Initial Cost', 'Lifetime Savings'],
@@ -2120,11 +2141,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 backgroundColor: ['#e53e3e', '#38a169']
             }]
         },
-        options: { scales: { y: { beginAtZero: true } } }
+        options: { 
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+        }
     });
 
     // الرسم البياني للملف الحراري
-    const temperatureProfileChart = new Chart(document.getElementById('temperatureProfileChart'), {
+    temperatureProfileChart = new Chart(document.getElementById('temperatureProfileChart'), {
         type: 'line',
         data: {
             labels: ['6 AM', '9 AM', '12 PM', '3 PM', '6 PM', '9 PM'],
@@ -2143,9 +2168,101 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ]
         },
-        options: { scales: { y: { beginAtZero: true } } }
+        options: { 
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+        }
     });
 });
+
+// تحديث الرسم البياني للأداء الحراري
+thermalPerformanceChart.data.datasets[0].data = [
+    thermalEfficiency1,
+    (thermalEfficiency1 + thermalEfficiencyFinal) / 2,
+    thermalEfficiencyFinal
+];
+thermalPerformanceChart.update();
+
+// تحديث الرسم البياني للمتانة
+durabilityChart.data.datasets[0].data = [
+    durabilityIndex1,
+    (durabilityIndex1 + durabilityIndexFinal) / 2,
+    durabilityIndexFinal
+];
+durabilityChart.update();
+
+// تحديث الرسم البياني لتحليل التكلفة والفائدة
+costBenefitChart.data.datasets[0].data = [-initialCostDiff, netLifetimeSavings];
+costBenefitChart.update();
+
+// تحديث الرسم البياني للملف الحراري
+temperatureProfileChart.data.datasets[0].data = [
+    maxConvTemp - 10,
+    maxConvTemp - 5,
+    maxConvTemp,
+    maxConvTemp - 2,
+    maxConvTemp - 5,
+    maxConvTemp - 8
+];
+temperatureProfileChart.data.datasets[1].data = [
+    maxThermoTemp - 10,
+    maxThermoTemp - 5,
+    maxThermoTemp,
+    maxThermoTemp - 2,
+    maxThermoTemp - 5,
+    maxThermoTemp - 8
+];
+temperatureProfileChart.update();
+
+
+function exportResults() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    // العنوان
+    doc.setFontSize(16);
+    doc.text('Thermochromic Asphalt Performance Report', 10, 10);
+    
+    // الأداء الحراري
+    doc.setFontSize(12);
+    doc.text('Thermal Performance', 10, 20);
+    doc.setFontSize(10);
+    doc.text(`Thermal Efficiency (Year 1): ${document.getElementById('thermalEfficiency1').innerHTML}`, 10, 30);
+    doc.text(`Thermal Efficiency (End of Life): ${document.getElementById('thermalEfficiencyFinal').innerHTML}`, 10, 40);
+    doc.text(`Temperature Reduction (Year 1): ${document.getElementById('tempReduction1').innerHTML}`, 10, 50);
+    doc.text(`Temperature Reduction (End of Life): ${document.getElementById('tempReductionFinal').innerHTML}`, 10, 60);
+    
+    // أداء المتانة
+    doc.setFontSize(12);
+    doc.text('Durability Performance', 10, 80);
+    doc.setFontSize(10);
+    doc.text(`Durability Index (Year 1): ${document.getElementById('durabilityIndex1').innerHTML}`, 10, 90);
+    doc.text(`Durability Index (End of Life): ${document.getElementById('durabilityIndexFinal').innerHTML}`, 10, 100);
+    doc.text(`Expected Lifespan: ${document.getElementById('expectedLifespan').innerHTML}`, 10, 110);
+    doc.text(`Lifespan Improvement: ${document.getElementById('lifespanImprovement').innerHTML}`, 10, 120);
+    
+    // الأداء الاقتصادي
+    doc.setFontSize(12);
+    doc.text('Economic Performance', 10, 140);
+    doc.setFontSize(10);
+    doc.text(`Cost Efficiency Index: ${document.getElementById('costEfficiencyIndex').innerHTML}`, 10, 150);
+    doc.text(`Net Lifetime Savings: ${document.getElementById('netLifetimeSavings').innerHTML}`, 10, 160);
+    doc.text(`Payback Period: ${document.getElementById('paybackPeriod').innerHTML}`, 10, 170);
+    
+    // التقييم العام
+    doc.setFontSize(12);
+    doc.text('Overall Assessment', 10, 190);
+    doc.setFontSize(10);
+    doc.text(`Regional Performance Index: ${document.getElementById('regionalPerformanceIndex').innerHTML}`, 10, 200);
+    doc.text(`Performance Rating: ${document.getElementById('performanceRating').innerHTML}`, 10, 210);
+    doc.text(`Recommendation: ${document.getElementById('recommendation').innerHTML}`, 10, 220);
+    
+    // حفظ الملف
+    doc.save('thermochromic-asphalt-report.pdf');
+}
+
+
 </script>
 </body>
 </html>
